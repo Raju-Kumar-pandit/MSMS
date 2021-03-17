@@ -34,7 +34,7 @@ $con->close();
     <head>
         <title>Staff Info</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="colors.css">
+-        <link rel="stylesheet" href="colors.css">
     </head>
     <body onload="dates()">
     <div>
