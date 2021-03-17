@@ -54,15 +54,15 @@ $con->close();
                     </tr>
                     <tr>
                         <th class="column">Staff Name</th>
-                        <td class="column"><input type="text" name="StaffName" id="StaffName" class="inputs"></td>
+                        <td class="column"><input type="text" name="StaffName" id="StaffName" class="inputs" required></td>
                     </tr>
                     <tr>
                         <th class="column">Date of Birth</th>
-                        <td class="column"><input type="date" name="Dateofbirth" id="Dateofbirth" class="inputs"></td>
+                        <td class="column"><input type="date" name="Dateofbirth" id="Dateofbirth" class="inputs" required></td>
                     </tr>
                     <tr>
                         <th class="column">Gender</th>
-                        <td class="column"><select name="Gender" id="Gender" class="inputs">
+                        <td class="column"><select name="Gender" id="Gender" class="inputs" required>
                             <option value="None">None</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -71,19 +71,19 @@ $con->close();
                     </tr>
                     <tr>
                         <th class="column">Mobile No.</th>
-                        <td class="column"><input type="text" name="MobileNo" id="MobileNo" class="inputs" maxlength="10"></td>
+                        <td class="column"><input type="text" name="MobileNo" id="MobileNo" class="inputs" maxlength="10"  required></td>
                     </tr>
                     <tr>
                         <th class="column">Email ID</th>
-                        <td class="column"><input type="email" name="EmailId" id="EmailId" class="inputs"></td>
+                        <td class="column"><input type="email" name="EmailId" id="EmailId" class="inputs" required></td>
                     </tr>
                     <tr>
                         <th class="column">Village Name</th>
-                        <td class="column"><input type="text" name="VillageName" id="VillageName" class="inputs"></td>
+                        <td class="column"><input type="text" name="VillageName" id="VillageName" class="inputs" required></td>
                     </tr>
                     <tr>
                         <th class="column">State Nmae</th>
-                        <td class="column"><select name="StateName" id="StateName" class="inputs">
+                        <td class="column"><select name="StateName" id="StateName" class="inputs" required>
                             <option value="Assam">Assam</option>
                             <option value="Bihar">Bihar</option>
                             <option value="Gujrat">Gujrat</option>
@@ -94,7 +94,7 @@ $con->close();
                     </tr>
                     <tr>
                         <th class="column">City Name</th>
-                        <td class="column"><select name="CityName" id="CityName" class="inputs">
+                        <td class="column"><select name="CityName" id="CityName" class="inputs" required>
                         <option value="Arwal">Arwal</option>
                         <option value="Bhagalpur">Bhagalpur</option>
                         <option value="Bhojpur">Bhojpur</option>

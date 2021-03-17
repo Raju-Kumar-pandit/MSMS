@@ -77,7 +77,7 @@
                                 </tr>
                                 <tr>
                                     <th class='column'>Pin Code</th>
-                                    <td class='column'><input type='number' name='PinCode' id='PinCode' class='inputs' maxlength='6' value=".$row["Pin_Code"]."></td>
+                                    <td class='column'><input type='text' name='PinCode' id='PinCode' class='inputs' maxlength='6' value=".$row["Pin_Code"]."></td>
                                 </tr>
                                 
                             </table>";
