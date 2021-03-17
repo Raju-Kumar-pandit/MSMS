@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>Java Script</title>
+    </head>
+    <body>
+        <div>
+            <p id="h">hello</p>
+            <button  onclick="mg()">click</button>    
+        </div>
+        <div>
+            <input type="text" name="number" id="number" >
+            <p id="n"></p>
+            <button onclick="num()">click</button>
+        </div>
+
+        <div>
+            <form id="form" action="">
+                <input type="text" name="number" id="number" >
+                <input type="text" name="num" id="num" oninput="fun()" value="">
+            </form>
+        </div>
+
+        
+        <div >
+            <p>hi</p>
+            <form  id="form" action="">
+                
+                <input type="text" name="number" id="number" >
+                <input type="text" name="num" id="num">
+               
+            </form>
+            <button onclick="input()">click</button>
+        </div>
+       
+        <script>
+            function mg(){
+                alert('Hi Sir');
+                document.getElementById('h').innerHTML="Sorry Sir";
+            }
+            function num(){
+                var a=Number(document.getElementById("number").value);
+                if(a=="")
+                {
+                    document.getElementById('n').innerHTML="How are you?";
+                }
+                else
+                {
+                    document.getElementById('n').innerHTML="I  am Fine. are you";
+                }
+            }
+
+             function fun() {
+                /*Getting the number of text fields*/
+                //var no =document.getElementById("num").value;
+                /*Generating text fields dynamically in the same form itself*/
+                //for(var i=0;i<no;i++) {
+                    //if(no=null){
+                        //break;
+                    //} else{
+                    var textfield = document.createElement("input");
+                    textfield.type = "text";
+                    textfield.value = "";
+                    document.getElementById('form').appendChild(textfield);
+
+                    var textfield = document.createElement("input");
+                    textfield.type = "text";
+                    textfield.value = "";
+                    document.getElementById('form').appendChild(textfield);
+                    //}
+                //}
+            }
+
+
+            function input() {
+                var f = document.createElement("p");
+                form.innerHTML="hi raju";
+
+                document.getElementById("form").appendChild(f);
+            }
+        </script>
+    </body>
+</html>

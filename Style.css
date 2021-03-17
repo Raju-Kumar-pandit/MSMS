@@ -1,0 +1,54 @@
+/*Css writen for simple form Admin, Staff, Customer, Suppler*/
+.table{
+    margin-left: 30%;
+    margin-right: 30%;
+    width: auto;
+    padding: 20px;
+}
+h1{
+    text-align: center;
+}
+.bb{
+    border-bottom: 2px solid dodgerblue;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.th{
+    text-align: left;
+    width:250px
+}
+.subbmit{
+    text-align: center;
+    width:600px
+}
+input[type=text],select{
+    width:300px;
+    height: 30px;
+    text-align: center;
+    margin: 5px;
+    text-transform: capitalize;
+}
+input[type=email],[type=number]{
+    width:300px;
+    height: 30px;
+    text-align: center;
+    margin: 5px;
+}
+input[type=date]{
+    width:300px;
+    height: 30px;
+    text-align: center;
+    margin: 5px;
+}
+input[type=submit],[type=reset],select{
+    width:300px;
+    height: 30px;
+    text-align: center;
+    margin: 5px;
+    text-transform: capitalize;
+}
+/*Table class used in Sales ,Purchase, Return Item, Payment*/
+.tables{
+    width: 100%;
+    background-color: aqua;
+}
