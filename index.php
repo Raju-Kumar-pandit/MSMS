@@ -1,4 +1,14 @@
+<?php
+    include 'Connect.php';
+    $sql = "Select UserName from useraccount";
 
+    $result = $con->query($sql);
+
+    if($result->num_rows>0) {
+        echo '<script>window.location.href="LogIn.php"</script>';
+    }
+    $con->close();
+?>
 <html>
     <head>
         <title>Create Account</title>
