@@ -18,9 +18,6 @@
                 <li>Company
                     <ul>
                         <li>
-                            <a href="NewCompany.php">New Company</a>
-                        </li>
-                        <li>
                             <a href="EditCompany.php">Edit Company</a>
                         </li>
                         <li>
@@ -34,7 +31,7 @@
                             <a href="Admin.php">New Admin</a>
                         </li>
                         <li>
-                            <a href="#">Edit Admin</a>
+                            <a href="EditAdmin.php">Edit Admin</a>
                         </li>
                         <li>
                             <a href="AdminRecord.php">display</a>
@@ -47,7 +44,7 @@
                             <a href="Staff.php">New Staff</a>
                         </li>
                         <li>
-                            <a href="#">Edit Staff</a>
+                            <a href="EditStaff.php">Edit Staff</a>
                         </li>
                         <li>
                             <a href="StaffRecord.php">display</a>
@@ -83,7 +80,7 @@
                             <a href="Customer.php">New Customer</a>
                         </li>
                         <li>
-                            <a href="#">Edit Customer</a>
+                            <a href="EditCustomer.php">Edit Customer</a>
                         </li>
                         <li>
                             <a href="CustomerRecord.php">display</a>
@@ -109,7 +106,7 @@
                             <a href="Supplier.php">New Supplier</a>
                         </li>
                         <li>
-                            <a href="#">Edit Supplier</a>
+                            <a href="EditSupplier.php">Edit Supplier</a>
                         </li>
                         <li>
                             <a href="SupplierRecord.php">display</a>

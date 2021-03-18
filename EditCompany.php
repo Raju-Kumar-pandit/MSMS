@@ -10,15 +10,11 @@
         </div>
         <div>
             <form action='ModifyCompany.php' method='POST'>
-            <h1 class='h'>Edit Company Info </h1>
-            <input type='search' name='SearchId' id='SearchId' placeholder='Search company id......' class='inputs column'>
-            <input type='button' value='Search'>
- 
+                <h1 class='h'>Edit Company Info </h1>
                 <?php 
-
                     include 'Connect.php';  
 
-                    $sql = "SELECT * FROM companyinfo where Company_ID='C00006'";
+                    $sql = "SELECT * FROM companyinfo where Company_ID='C00001'";
 
                     $result =$con->query($sql);
 
@@ -45,7 +41,7 @@
                                 </tr>
                                 <tr>
                                     <th class='column'>Email ID</th>
-                                    <td class='column'><input type='email' name='EmailId' id='EmailId' class='inputs' value=".$row["Email_ID"]."></td>
+                                    <td class='column'><input type='email' name='EmailId' id='EmailId' class='emails' value=".$row["Email_ID"]."></td>
                                 </tr>
                                 <tr>
                                     <th class='column'>Place Name</th>

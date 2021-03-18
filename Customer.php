@@ -1,3 +1,7 @@
+
+
+
+
 <?php
     include 'Connect.php';
 
@@ -12,18 +16,18 @@
         $CustomerId = $CustomerId + 1;
         if($CustomerId < 10)
         {
-            $CustomerId = "A0000$CustomerId";
+            $CustomerId = "C0000$CustomerId";
            
         } 
         else
         {
-            $CustomerId = "A000$CustomerId";   
+            $CustomerId = "C000$CustomerId";   
         }
         
     }
     else
     {
-        $CustomerId = "A00001";
+        $CustomerId = "C00001";
     }
     
 

@@ -13,18 +13,18 @@
         $StaffId = $StaffId + 1;
         if($StaffId < 10)
         {
-            $StaffId = "A0000$StaffId";
+            $StaffId = "S0000$StaffId";
            
         } 
         else
         {
-            $StaffId = "A000$StaffId";   
+            $StaffId = "S000$StaffId";   
         }
         
     }
     else
     {
-        $StaffId = "A00001";
+        $StaffId = "S00001";
     }
     
 
@@ -75,7 +75,7 @@ $con->close();
                     </tr>
                     <tr>
                         <th class="column">Email ID</th>
-                        <td class="column"><input type="email" name="EmailId" id="EmailId" class="inputs" required></td>
+                        <td class="column"><input type="email" name="EmailId" id="EmailId" class="emails" required></td>
                     </tr>
                     <tr>
                         <th class="column">Village Name</th>

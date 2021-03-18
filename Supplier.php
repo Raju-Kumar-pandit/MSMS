@@ -13,18 +13,18 @@
         $SupplierId = $SupplierId + 1;
         if($SupplierId < 10)
         {
-            $SupplierId = "A0000$SupplierId";
+            $SupplierId = "S0000$SupplierId";
            
         } 
         else
         {
-            $SupplierId = "A000$Supplierid";   
+            $SupplierId = "S000$Supplierid";   
         }
         
     }
     else
     {
-        $SupplierId = "A00001";
+        $SupplierId = "S00001";
     }
     
 
@@ -54,27 +54,27 @@
                     </tr>
                     <tr>
                         <th class="column">Supplier Name</th>
-                        <td class="column"><input type="text" name="SupplierName" id="SupplierName" class="inputs"></td>
+                        <td class="column"><input type="text" name="SupplierName" id="SupplierName" class="inputs" required></td>
                     </tr>
                     <tr>
                         <th class="column">Shop Name</th>
-                        <td class="column"><input type="text" name="ShopName" id="ShopName" class="inputs"></td>
+                        <td class="column"><input type="text" name="ShopName" id="ShopName" class="inputs" required></td>
                     </tr>
                     <tr>
                         <th class="column">Mobile No.</th>
-                        <td class="column"><input type="text" name="MobileNo" id="MobileNo" class="inputs" maxlength="10"></td>
+                        <td class="column"><input type="text" name="MobileNo" id="MobileNo" class="inputs" maxlength="10" required></td>
                     </tr>
                     <tr>
                         <th class="column">Email ID</th>
-                        <td class="column"><input type="email" name="EmailId" id="EmailId" class="inputs"></td>
+                        <td class="column"><input type="email" name="EmailId" id="EmailId" class="emails" required></td>
                     </tr>
                     <tr>
                         <th class="column">Place Name</th>
-                        <td class="column"><input type="text" name="PlaceName" id="PlaceName" class="inputs"></td>
+                        <td class="column"><input type="text" name="PlaceName" id="PlaceName" class="inputs" required></td>
                     </tr>
                     <tr>
                         <th class="column">State Nmae</th>
-                        <td class="column"><select name="StateName" id="StateName" class="inputs">
+                        <td class="column"><select name="StateName" id="StateName" class="inputs" required>
                             <option value="Assam">Assam</option>
                             <option value="Bihar">Bihar</option>
                             <option value="Gujrat">Gujrat</option>
@@ -85,7 +85,7 @@
                     </tr>
                     <tr>
                         <th class="column">City Name</th>
-                        <td class="column"><select name="CityName" id="CityName" class="inputs">
+                        <td class="column"><select name="CityName" id="CityName" class="inputs" required>
                         <option value="Arwal">Arwal</option>
                         <option value="Bhagalpur">Bhagalpur</option>
                         <option value="Bhojpur">Bhojpur</option>

@@ -74,7 +74,7 @@ $con->close();
                     </tr>
                     <tr>
                         <th class="column">Email ID</th>
-                        <td class="column"><input type="email" name="EmailId" id="EmailId" class="inputs" required></td>
+                        <td class="column"><input type="email" name="EmailId" id="EmailId" class="emails" required></td>
                     </tr>
                     <tr>
                         <th class="column">Village Name</th>

@@ -23,10 +23,17 @@
     {
         $CompanyId = "C00001";
     }
-    
+    $sql = "Select Company_ID from companyinfo";
+
+    $result = $con->query($sql);
+
+    if($result->num_rows>0) {
+        echo '<script>window.location.href="Dashbord.php"</script>';
+    }
 
 $con->close();
 ?>
+
 <html>
     <head>
         <title>Create Company</title>
@@ -56,7 +63,7 @@ $con->close();
                     </tr>
                     <tr>
                         <th class="column">Email ID</th>
-                        <td class="column"><input type="email" name="EmailId" id="EmailId" class="inputs" required></td>
+                        <td class="column"><input type="email" name="EmailId" id="EmailId" class="emails" required></td>
                     </tr>
                     <tr>
                         <th class="column">Place Name</th>

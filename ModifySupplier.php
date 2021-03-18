@@ -1,6 +1,6 @@
 <?php
     include 'Connect.php';
- 
+
     $SupplierID = $_POST["SupplierId"];
     $Date = $_POST["Date"];
     $SupplierName = $_POST["SupplierName"];
@@ -11,13 +11,13 @@
     $StateName = $_POST["StateName"];
     $CityName = $_POST["CityName"];
 
-    $sql = "INSERT INTO supplier(Supplier_ID,Date,Supplier_Name,Shop_Name,Mobile_No,Email_ID,Place_Name,State_Name,City_Name) 
-    VALUES('$SupplierID','$Date','$SupplierName','$ShopName','$MobileNo','$EmailId','$PlaceName','$StateName','$CityName')";
-     
+    $sql = "UPDATE  supplier SET Supplier_Name='$SupplierName', Date='$Date', Shop_Name='$ShopName', Mobile_No='$MobileNo', Email_ID='$EmailId', Place_Name='$PlaceName', State_Name='$StateName', City_Name='$CityName' WHERE Supplier_ID='S00001'";
+
     if($con->query($sql)===TRUE){
-        echo"New Data Inserted Successfully";
+        echo"Update Existing data successfully";
     } else {
         echo $con->error;
     }
 
     $con->close();
+?>
