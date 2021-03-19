@@ -53,6 +53,10 @@
                         <td class="column"><input type="text" name="ItemName" id="ItemName" class="inputs"></td>
                     </tr>
                     <tr>
+                        <th class="column">Under</th>
+                        <td class="column"><input type="text" name="Under" id="Under" class="inputs"></td>
+                    </tr>
+                    <tr>
                         <th class="column">Unit</th>
                         <td class="column"><select name="Unit" id="Unit" class="inputs">
                             <option value="None">None</option>

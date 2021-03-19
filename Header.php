@@ -4,7 +4,20 @@
         <link rel="stylesheet" href="colors.css">
     </head>
     <body>
-    <h1 class="h" id="company"></h1>
+    <?php 
+        include 'Connect.php';
+
+        $sql = "SELECT Company_Name FROM companyinfo";
+        $result = $con->query($sql);
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            echo "<h1 class='h'>".$row['Company_Name']."</h1>";
+        } else {
+
+        }
+    
+    ?>
+    
         <div class="header">
            
             <ul>
@@ -54,7 +67,7 @@
                 <li>Ledger
                     <ul>
                         <li>
-                            <a href="#">New Ledger</a>
+                            <a href="Newledger.php">New Ledger</a>
                         </li>
                         <li>
                             <a href="#">Edit Ledger</a>

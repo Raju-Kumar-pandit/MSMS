@@ -66,6 +66,7 @@
 }
 .h{
     text-align: center;
+    text-transform: capitalize;
     width: 100%;
 }
 /*--------- drop down menu-----------*/
@@ -129,7 +130,7 @@ ul li:hover > ul{
     padding: 8px;
     height: 40px;
     font-size: 18px;
-    text-transform: capitalize;
+
     
 }
 .thtd:nth-child(even){

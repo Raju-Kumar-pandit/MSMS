@@ -22,12 +22,12 @@
 
     
 
-    if($con->multi_query($sql)===TRUE){
+    if($con->query($sql)===TRUE){
 
         $sql = "INSERT INTO salesItem(Item_Name,Batch_No,Quantity,Rate,Input_GST,Discount,Amount) 
         VALUES('$ItemName','$BatchNo','$Quantity','$Rate','$InputGSt','$Discount','$Amount')";
 
-        if($con->multi_query($sql)===TRUE){
+        if($con->query($sql)===TRUE){
 
             echo "New record inserted successfully ";
 
