@@ -31,7 +31,7 @@
 
     include 'Connect.php';
 
-    $sql = "SELECT * FROM companyinfo where Company_ID='C00002'";
+    $sql = "SELECT * FROM companyinfo where Company_ID='C00001'";
 
     $result =$con->query($sql);
 
@@ -88,21 +88,105 @@
         <table>
             <tr id="rows">
                 <td><input type="text" name="" id=""></td>
-                <td><input type="submit" value="submit" onclick="javascript:add();"></td>
+                <td><input type="submit" value="submit" onclick="create();"></td>
             </tr>
 
         </table>
+        <table>
+        <tr>
+                    <th class="column">Cutomer ID</th>
+                    <td class="column"><input type="text" list="Ids" name="Id" id="Id">
+                        <datalist id="Ids">
+                        <?php
+                        include 'Connect.php';
+
+                        $sql = "SELECT Customer_ID FROM customer";
+                        $result = $con->query($sql);
+                        if($result->num_rows > 0){
+                            while($row= $result->fetch_assoc()){
+                                echo  $row["Customer_ID"];
+                                echo "<option value=". $row['Customer_ID']."></option>";
+                            }
+                        }
+                    ?>
+                        </datalist>
+                    </td>
+                    <th class="column">Mode</th>
+                    <td class="column"><select name="Mode" id="Mode" class="input">
+                        <option value="None">None</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Credit">Credit</option>
+                    </select></td>
+                </tr>
+        </table>
+
+        <table>
+                <tr>
+                    <th class="column">Cutomer ID</th>
+                    <td class="column">
+                        <input type="text" list="Ids" name="Id" id="Id">
+                        <datalist id="Ids">
+                        <?php
+
+                            include 'Connect.php';
+
+                            $sql = "SELECT Purchase_ID FROM purchase";
+                            $result = $con->query($sql);
+                            if($result->num_rows > 0){
+                                while($row = $result->fetch_assoc()){
+                                    $id = $row['Purchase_ID'];
+                                    echo "<td>".$id."</td>" ;
+                                    echo "<option value=".$id."></option>";
+                                }
+                            }
+                            $con->close();
+                            ?>
+                        </datalist>
+                    </td>
+                    <th class="column">Mode</th>
+                    <td class="column"><select name="Mode" id="Mode" class="input">
+                        <option value="None">None</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Credit">Credit</option>
+                    </select></td>
+                </tr>
+                <div>
+                <input list="Items" name="Item" id="Item">
+
+                <datalist id="Items">
+                <?php
+
+                    include 'Connect.php';
+
+                    $sql = "SELECT Purchase_ID FROM purchase";
+                    $result = $con->query($sql);
+                    if($result->num_rows > 0){
+                        while($row = $result->fetch_assoc()){
+                            $id = $row['Purchase_ID'];
+                            echo "<option value=".$id.">";
+                            echo "<td>".$id."</td>" ;
+                            echo "<option value=".$id."></option>";
+                        }
+                    }
+                    $con->close();
+                    ?>
+                </datalist>
+                </div>
+        </table>
+        <div>
+            <?php
+
+            
+            ?>
+        </div>
     </body>
     <script>
-        function add(){
 
-            var row++;
-            var input = document.createElement('input');
-            input.type="text";
-            input.setAttribute("class", "w3-input w3-border");
-            input.setAttribute('id', 'row' + row);
-            input.setAttribute('value', row);
-            var row = documentElementById("row");
-        }
+            function create(){
+                var x=document.createElement("INPUT")
+                x.setAttribute("type", "text");
+                document.body.appendChild(x);
+            }
     </script>
 </html>
+

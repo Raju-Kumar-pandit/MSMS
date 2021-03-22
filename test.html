@@ -80,3 +80,47 @@
         </script>
     </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <table border="1" id="kids">
+            <tr >
+                Name:
+          <td><input type="text" name="name" ></td>
+          <td><input type="text" name="name"></td>
+          <td><input type="text" name="name" id="add_kid()_1"></td>
+          <td id="add_kid()_1"><input type="button" id="add_kid()_1" onclick="addkid()" value="+" /></td>
+        </tr>
+        </table>
+        Phone:
+        <input type="text" name="phone">
+        <br/>
+        <input type="submit" name="submit" value="submit" />
+    </form>
+
+    <script>
+        var i = 1;
+
+function addkid() {
+  i++;
+  var table = document.createElement('table');
+  var id = i;
+  table.innerHTML = '<td> <input type="text" name="</td>' + id + '"/>' + '<td> <input type="button" id="add_kid()_' + id + '" onclick="addkid()" value="+" /></td>' + ' <input type="button" id="rem_kid()_' + id + '" onclick="remkid(this)" value="-" />';
+  document.getElementById('kids').appendChild(table);
+}
+
+function remkid(table) {
+  document.getElementById('kids').removeChild(table.parentNode);
+  i--;
+}
+    </script>      
+</body>
+</html>

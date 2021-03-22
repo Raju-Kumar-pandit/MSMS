@@ -8,7 +8,7 @@
     {
         $row= $result->fetch_assoc();
         $PaymentId = $row["Payment_ID"];
-        $PaymentId = substr($PaymentId, 1);
+        $PaymentId = substr($PaymentId, 2);
         $PaymentId = $PaymentId + 1;
         if($PaymentId < 10)
         {
@@ -45,15 +45,30 @@
             <table class="table">
                 <tr>
                     <th class="column">Payment ID</th>
-                    <td class="column"><input type="text" name="PaymentId" id="PaymentId" class="input" value="<?php echo $PaymentId ?>"></td>
+                    <td class="column"><input type="text" name="PaymentId" id="PaymentId" class="input" value="<?php echo $PaymentId ?>" readonly></td>
                     <th class="column">Date</th>
                     <td class="column"><input type="text" name="Date" id="Date" class="input" onclick="dates()" readonly></td>
                 </tr>
                 <tr>
                     <th class="column">Supplier ID</th>
-                    <td class="column"><input type="text" name="Id" id="Id" class="input"></td>
+                    <td class="column"><input type="text" list="Ids" name="SupplierId" id="SupplierId" class="input">
+                        <datalist id="Ids">
+                        <?php
+                        include 'Connect.php';
+
+                        $sql = "SELECT * FROM purchase";
+                        $result = $con->query($sql);
+                        if($result->num_rows > 0){
+                            while($row= $result->fetch_assoc()){
+                                $supplierid = $row["Supplier_ID"];
+                                echo "<option value=".$supplierid."></option>";
+                            }
+                        }
+                        ?>
+                        </datalist>
+                    </td>
                     <th class="column">Mode</th>
-                    <td class="column"><select name="Mode" id="Mode" class="input">
+                    <td class="column"><select name="Mode" id="Mode" class="input" required>
                         <option value="None">None</option>
                         <option value="Cash">Cash</option>
                         <option value="Credit">Credit</option>
@@ -63,15 +78,15 @@
             <table class="table">
                 <tr>
                     <th class="column">Dues Amount</th>
-                    <td><input type="text" name="DuesAmount" id="DuesAmount" class="inputamount"></td>
+                    <td><input type="text" name="DuesAmount" id="DuesAmount" class="inputamount" required></td>
                 </tr>
                 <tr>
                     <th class="column">Pay Amount</th>
-                    <td><input type="text" name="PayAmount" id="PayAmount" class="inputamount"></td>     
+                    <td><input type="text" name="PayAmount" id="PayAmount" class="inputamount" required></td>     
                 </tr>
                 <tr>
                     <th class="column">Current Dues Amount</th>
-                    <td><input type="text" name="CurrentDuesAmount" id="CurrentDuesAmount" class="inputamount" onclick="substract()"></td>
+                    <td><input type="text" name="CurrentDuesAmount" id="CurrentDuesAmount" class="inputamount" onclick="substract()" readonly></td>
                 </tr>
             </table>
             <table class="table">

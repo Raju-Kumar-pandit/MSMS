@@ -47,16 +47,31 @@ $con->close();
                     <table class="table">
                         <tr>
                             <th class="column">Sales ID</th>
-                            <td class="column"><input type="text"  name="SalesId" id="SalesId" class="input" value="<?php echo $SalesId; ?>"></td>
+                            <td class="column"><input type="text"  name="SalesId" id="SalesId" class="input" value="<?php echo $SalesId; ?>" readonly></td>
                             <th class="column">Date</th>
                             <td class="column"><input type="text" name="Date" id="Date" class="input" onclick="dates()" readonly></td>
                         </tr>
                         <tr>
                             <th class="column">Customer ID</th>
-                            <td class="column"><input type="text" name="CustomerId" id="CustomerId" class="input"></td>
+                            <td class="column"><input type="text" list="Ids" name="CustomerId" id="CustomerId" class="input">
+                                <datalist id="Ids">
+                                <?php
+                                include 'Connect.php';
+
+                                $sql = "SELECT * FROM customer";
+                                $result = $con->query($sql);
+                                if($result->num_rows > 0){
+                                    while($row= $result->fetch_assoc()){
+                                        $customerid = $row["Customer_ID"];
+                                        echo "<option value=".$customerid."></option>";
+                                    }
+                                }
+                                ?>
+                                </datalist>
+                            </td>
                             <th class="column">Mode</th>
                             <td>
-                                <select name="Mode" id="Mode" class="input">
+                                <select name="Mode" id="Mode" class="input" required>
                                     <option value="None">None</option>
                                     <option value="Cash">Cash</option>
                                     <option value="Credit">Credit</option>
@@ -76,14 +91,28 @@ $con->close();
                             <th class="column">Dicount</th>
                             <th class="column">Amount</th>
                         </tr>
-                        <tr>
-                            <td><input type="text"  name="ItemName" id="ItemName" class="input"></td>
-                            <td class="column"><input type="text" name="BatchNo" id="BatchNo" class="input"></td>
-                            <td class="column"><input type="text" name="Quantity" id="Quantity" class="input"></td>
-                            <td class="column"><input type="text" name="Rate" id="Rate" class="input"></td>
-                            <td class="column"><input type="text" name="InputGST" id="InputGST" class="input"></td>
-                            <td class="column"><input type="text" name="Discount" id="Discount" class="input"></td>
-                            <td class="column"><input type="text" name="Amount" id="Amount" class="input" onclick="amount()" onclick="input()"></td>
+                        <tr><td><input type="text" list="ItemNames" name="ItemName" id="ItemName" class="input">
+                                <datalist id="ItemNames">
+                                <?php
+                                include 'Connect.php';
+
+                                $sql = "SELECT * FROM stockItem";
+                                $result = $con->query($sql);
+                                if($result->num_rows > 0){
+                                    while($row= $result->fetch_assoc()){
+                                        $ItemName = $row["Item_Name"];
+                                        echo "<option value=".$ItemName."></option>";
+                                    }
+                                }
+                                ?>
+                                </datalist>
+                            </td>
+                            <td class="column"><input type="text" name="BatchNo" id="BatchNo" class="input"required></td>
+                            <td class="column"><input type="text" name="Quantity" id="Quantity" class="input" required></td>
+                            <td class="column"><input type="text" name="Rate" id="Rate" class="input" required></td>
+                            <td class="column"><input type="text" name="InputGST" id="InputGST" class="input" required></td>
+                            <td class="column"><input type="text" name="Discount" id="Discount" class="input" required></td>
+                            <td class="column"><input type="text" name="Amount" id="Amount" class="input" onclick="amount()" readonly></td>
                         </tr>
                        
                     </table>
@@ -92,21 +121,16 @@ $con->close();
                     <table class="table"> 
                         <tr>
                             <th class="column">Total Amount</th>
-                            <td><input type="text" name="TotalAmount" id="TotalAmount" class="inputamount"></td>
+                            <td><input type="text" name="TotalAmount" id="TotalAmount" class="inputamount"readonly></td>
                         </tr>
                         <tr>
                             <th class="column">pay Amount</th>
-                            <td><input type="text" name="PayAmount" id="PayAmount" class="inputamount" ></td>
+                            <td><input type="text" name="PayAmount" id="PayAmount" class="inputamount" required></td>
                         </tr>
                         <tr>
                             <th class="column">Dues Amount</th>
-                            <td><input type="text" name="DuesAmount" id="DuesAmount" class="inputamount" onclick="substract()"></td>
+                            <td><input type="text" name="DuesAmount" id="DuesAmount" class="inputamount" onclick="substract()" readonly></td>
                         </tr>   
-                    </table>
-                </div>
-                <div>
-                    <table class="table"> 
-                        
                     </table>
                 </div>
                 <div>

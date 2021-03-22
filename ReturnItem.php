@@ -46,7 +46,7 @@ $con->close();
                     <table class="table">
                     <tr>
                         <th class="column">Returns ID</th>
-                        <td class="column"><input type="text" name="ReturnId" id="ReturnId" class="input" value="<?php echo $ReturnId; ?>"></td>
+                        <td class="column"><input type="text" name="ReturnId" id="ReturnId" class="input" value="<?php echo $ReturnId; ?>" readonly></td>
                         <th class="column">Date</th>
                         <td class="column"><input type="text" name="Date" id="Date" class="input" onclick="dates()" readonly></td>
                     </tr>
@@ -67,7 +67,7 @@ $con->close();
                 <div>
                     <table class="table">
                         <tr>
-                            <th>Item Name</th>
+                            <th class="Item">Item Name</th>
                             <th class="column">Batch No.</th>
                             <th class="column">Quantity</th>
                             <th class="column">Rate</th>

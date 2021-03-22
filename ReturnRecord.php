@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="colors.css">
     </head>
     <body>
+        <h1>List of Return Ttems</h1>
          <table class="tables">
             <tr class="th">
                 <th class="rows">Return ID</th>
@@ -46,13 +47,19 @@
                     echo "<td>".$row["Amount"]."</td>";
                     echo "<td>".$row["Total_Amount"]."</td>";
                     echo "<td>".$row["Dues_Amount"]."</td>";
-                    echo "<td>".$row["Current Dues_Amount"]."</td>";
+                    echo "<td>".$row["Current_Dues_Amount"]."</td>";
                     echo "</tr>";
                     }
+                    
                 }
                 $con->close();
             ?>
         
+        </table>
+        <table class="tables">
+            <tr>
+                <td class="column"><input type="submit" value="Back" class="button"></td>
+            </tr>
         </table>
     </body>
 </html>

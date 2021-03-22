@@ -2,7 +2,7 @@
     include 'Connect.php';
 
     $PaymentId = NULL;
-    $sql ="SELECT Payment_ID FROM payment order by Payment_ID DESC LIMIT 1";
+    $sql ="SELECT Payment_ID FROM receivepayment order by Payment_ID DESC LIMIT 1";
     $result = $con->query($sql);
     if($result->num_rows > 0)
     {
@@ -46,29 +46,30 @@
                 <tr>
                     <th class="column">Payment ID</th>
                     
-                    <td class="column"><input type="text" name="PaymentId" id="PaymentId" class="input" value="<?php echo $PaymentId ?>"></td>
+                    <td class="column"><input type="text" name="PaymentId" id="PaymentId" class="input" value="<?php echo $PaymentId ?>" readonly></td>
                     <th class="column">Date</th>
                     <td class="column"><input type="text" name="Date" id="Date" class="input" onclick="dates()" readonly></td>
                 </tr>
                 <tr>
                     <th class="column">Cutomer ID</th>
-                    <td class="column"><select name="Id" id="Id" class="input">
-                    <?php
+                    <td class="column"><input type="text" list="Ids" name="CustomerId" id="CustomerId" class="input">
+                        <datalist id="Ids">
+                        <?php
                         include 'Connect.php';
 
-                        $sql = "SELECT Customer_ID from sales";
+                        $sql = "SELECT * FROM sales";
                         $result = $con->query($sql);
                         if($result->num_rows > 0){
                             while($row= $result->fetch_assoc()){
                                 $customerid = $row["Customer_ID"];
-                                $duesamount = $row["Dues_Amount"];
-                                echo "<option value=".$customerid.">$customerid</option>";
+                                echo "<option value=".$customerid."></option>";
                             }
                         }
                     ?>
-                    </select></td>
+                        </datalist>
+                    </td>
                     <th class="column">Mode</th>
-                    <td class="column"><select name="Mode" id="Mode" class="input">
+                    <td class="column"><select name="Mode" id="Mode" class="input" required>
                         <option value="None">None</option>
                         <option value="Cash">Cash</option>
                         <option value="Credit">Credit</option>
@@ -79,15 +80,15 @@
                 <tr>
                     <th class="column">Dues Amount</th>
 
-                    <td><input type="text" name="DuesAmount" id="DuesAmount" class="inputamount" value="<?php //echo $duesamount;?>"></td>
+                    <td><input type="text" name="DuesAmount" id="DuesAmount" class="inputamount" readonly></td>
                 </tr>
                 <tr>
                     <th class="column">Pay Amount</th>
-                    <td><input type="text" name="PayAmount" id="PayAmount" class="inputamount"></td>     
+                    <td><input type="text" name="PayAmount" id="PayAmount" class="inputamount" required></td>     
                 </tr>
                 <tr>
                     <th class="column">Current Dues Amount</th>
-                    <td><input type="text" name="CurrentDuesAmount" id="CurrentDuesAmount" class="inputamount" onclick="substract()"></td>
+                    <td><input type="text" name="CurrentDuesAmount" id="CurrentDuesAmount" class="inputamount" onclick="substract()" readonly></td>
                 </tr>
             </table>
             <table class="table">

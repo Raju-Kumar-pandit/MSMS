@@ -8,6 +8,7 @@
     $Mode = $_POST["Mode"];
     $TotalAmount = $_POST["TotalAmount"];
     $PayAmount = $_POST["PayAmount"];
+    $DuesAmount = $_POST["Dues_Amount"];
     $ItemName = $_POST["ItemName"];
     $BatchNo = $_POST["BatchNo"];
     $Quantity = $_POST["Quantity"];
@@ -17,8 +18,8 @@
     $Discount = $_POST["Discount"];
 
 
-    $sql = "INSERT INTO purchase(Purchase_ID,Date,Supplier_ID,Mode,Total_Amount,Pay_Amount)
-    VALUES('$PurchaseId','$Date','$SupplierId','$Mode','$TotalAmount','$PayAmount')";
+    $sql = "INSERT INTO purchase(Purchase_ID,Date,Supplier_ID,Mode,Total_Amount,Pay_Amount,Dues_Amount)
+    VALUES('$PurchaseId','$Date','$SupplierId','$Mode','$TotalAmount','$PayAmount','$DuesAmount')";
       if($con->query($sql)===TRUE){
         $sql = "INSERT INTO purchaseItem(Purchase_ID, Item_Name,Batch_No,Quantity,Rate,Output_GST,Amount,Discount) 
         VALUES('$PurchaseId','$ItemName','$BatchNo','$Quantity','$Rate','$OutputGST','$Amount','$Discount')";

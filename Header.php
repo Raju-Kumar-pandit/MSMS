@@ -85,6 +85,12 @@
                         <li>
                             <a href="#">Edit Stock Item</a>
                         </li>
+                        <li>
+                            <a href="SearchStock.php">Search Stock Item</a>
+                        </li>
+                        <li>
+                            <a href="StockRecord.php">display Stock Item</a>
+                        </li>
                     </ul>
                 </li>
                 <li> Customer
