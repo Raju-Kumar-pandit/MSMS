@@ -23,27 +23,36 @@
 
                         if($result->num_rows > 0){
                             $row = $result->fetch_assoc();
-
+                            $AdminId =$row['Admin_ID'];
+                            $AdminName = $row['Admin_Name'];
+                            $Date = $row['Date'];
+                            $DOB = $row['DOB'];
+                            $Gender = $row['Gender'];
+                            $MobileNo =$row['Mobile_No'];
+                            $EmailId =$row['Email_ID'];
+                            $VillageName = $row['Village_Name'];
+                            $StateName = $row['State_Name'];
+                            $CityName = $row['City_Name'];
                             echo "<table class='table'>
                             <tr>
                                 <th class='column'>Admin ID</th>
-                                <td class='column'><input type='text' name='AdminId' id='AdminId' class='inputs' value=".$row['Admin_ID']." readonly></td>
+                                <td class='column'><input type='text' name='AdminId' id='AdminId' class='inputs' value='$AdminId' readonly></td>
                             </tr>
                             <tr>
                                 <th class='column'>Date</th>
-                                <td class='column'><input type='text' name='Date' id='Date' class='inputs' value=".$row['Date']." readonly></td>
+                                <td class='column'><input type='text' name='Date' id='Date' class='inputs' value='$Date' readonly></td>
                             </tr>
                             <tr>
                                 <th class='column'>Admin Name</th>
-                                <td class='column'><input type='text' name='AdminName' id='AdminName' class='inputs' value=".$row['Admin_Name']."></td>
+                                <td class='column'><input type='text' name='AdminName' id='AdminName' class='inputs' value='$AdminName'></td>
                             </tr>
                             <tr>
                                 <th class='column'>Date of Birth</th>
-                                <td class='column'><input type='date' name='Dateofbirth' id='Dateofbirth' class='inputs'value=".$row['DOB']."></td>
+                                <td class='column'><input type='date' name='Dateofbirth' id='Dateofbirth' class='inputs' value='$DOB'></td>
                             </tr>
                             <tr>
                                 <th class='column'>Gender</th>
-                                <td class='column'><select name='Gender' id='Gender' class='inputs' value=".$row['Gender'].">
+                                <td class='column'><select name='Gender' id='Gender' class='inputs' value='$Gender'>
                                     <option value='None'>None</option>
                                     <option value='Male'>Male</option>
                                     <option value='Female'>Female</option>
@@ -52,19 +61,19 @@
                             </tr>
                             <tr>
                                 <th class='column'>Mobile No.</th>
-                                <td class='column'><input type='text' name='MobileNo' id='MobileNo'  class='inputs' maxlength='10' value=".$row['Mobile_No']."></td>
+                                <td class='column'><input type='text' name='MobileNo' id='MobileNo'  class='inputs' maxlength='10' value='$MobileNo'></td>
                             </tr>
                             <tr>
                                 <th class='column'>Email ID</th>
-                                <td class='column'><input type='email' name='EmailId' id='EmailId' class='emails' value=".$row['Email_ID']."></td>
+                                <td class='column'><input type='email' name='EmailId' id='EmailId' class='emails' value='$EmailId'></td>
                             </tr>
                             <tr>
                                 <th class='column'>Village Name</th>
-                                <td class='column'><input type='text' name='VillageName' id='VillageName' class='inputs' value=".$row['Village_Name']."></td>
+                                <td class='column'><input type='text' name='VillageName' id='VillageName' class='inputs' value='$VillageName'></td>
                             </tr>
                             <tr>
                                 <th class='column'>State Nmae</th>
-                                <td class='column'><select name='StateName' id='StateName' class='inputs' value=".$row['State_Name'].">
+                                <td class='column'><select name='StateName' id='StateName' class='inputs' value='$StateName'>
                                     <option value='Assam'>Assam</option>
                                     <option value='Bihar'>Bihar</option>
                                     <option value='Gujrat'>Gujrat</option>
@@ -75,7 +84,7 @@
                             </tr>
                             <tr>
                                 <th class='column'>City Name</th>
-                                <td class='column'><select name='CityName' id='CityName' class='inputs' value=".$row['City_Name'].">
+                                <td class='column'><select name='CityName' id='CityName' class='inputs' value='$CityName'>
                                 <option value='Arwal'>Arwal</option>
                                 <option value='Bhagalpur'>Bhagalpur</option>
                                 <option value='Bhojpur'>Bhojpur</option>
@@ -94,7 +103,7 @@
                 ?>
                 <table class="table">
                     <tr>
-                        <th class="column"><input type="submit" value="Submit" class="button"></th>
+                        <th class="column"><input type="submit" value="Update" class="button"></th>
             
                     </tr>
                 </table>

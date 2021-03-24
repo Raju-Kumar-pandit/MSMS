@@ -15,7 +15,8 @@
     $sql = "UPDATE  staff SET Staff_Name='$StaffName', Date='$Date', DOB='$Dateofbirth', Gender='$Gender', Mobile_No='$MobileNo', Email_ID='$EmailId', Village_Name='$VillageName', State_Name='$StateName', City_Name='$CityName' WHERE Staff_ID='$StaffId'";
 
     if($con->query($sql)===TRUE){
-        echo"Update Existing data successfully";
+        echo"<script>alert('Update existing data Successfully')</script>";
+        echo "<script>window.location.href='Dashbord.php'</script>";
     } else {
         echo $con->error;
     }

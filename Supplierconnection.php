@@ -15,7 +15,8 @@
     VALUES('$SupplierID','$Date','$SupplierName','$ShopName','$MobileNo','$EmailId','$PlaceName','$StateName','$CityName')";
      
     if($con->query($sql)===TRUE){
-        echo"New Data Inserted Successfully";
+        echo"<script>alert('New data inserted Successfully')</script>";
+        echo "<script>window.location.href='Dashbord.php'</script>";
     } else {
         echo $con->error;
     }

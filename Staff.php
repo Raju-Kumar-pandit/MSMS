@@ -82,7 +82,7 @@ $con->close();
                         <td class="column"><input type="text" name="VillageName" id="VillageName" class="inputs" required></td>
                     </tr>
                     <tr>
-                        <th class="column">State Nmae</th>
+                        <th class="column">State Name</th>
                         <td class="column"><select name="StateName" id="StateName" class="inputs" required>
                             <option value="Assam">Assam</option>
                             <option value="Bihar">Bihar</option>
@@ -109,8 +109,7 @@ $con->close();
                 </table>
                 <table class="table">
                     <tr>
-                        <th class="column"><input type="submit" value="Submit" class="button"></th>
-            
+                        <th class="column"><input type="submit" value="Create Staff" class="button"></th>
                     </tr>
                 </table>
             </form>

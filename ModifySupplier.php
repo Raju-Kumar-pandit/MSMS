@@ -14,7 +14,8 @@
     $sql = "UPDATE  supplier SET Supplier_Name='$SupplierName', Date='$Date', Shop_Name='$ShopName', Mobile_No='$MobileNo', Email_ID='$EmailId', Place_Name='$PlaceName', State_Name='$StateName', City_Name='$CityName' WHERE Supplier_ID='S00001'";
 
     if($con->query($sql)===TRUE){
-        echo"Update Existing data successfully";
+        echo"<script>alert('Update existing data Successfully')</script>";
+        echo "<script>window.location.href='Dashbord.php'</script>";
     } else {
         echo $con->error;
     }

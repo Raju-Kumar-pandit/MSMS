@@ -5,7 +5,26 @@
         <link rel="stylesheet" href="colors.css">
     </head>
     <body>
-         <table class="tables">
+        <form action="" method="post">
+        <table class="tables">
+            <tr>
+                <td class="column" colspan="2"><input type="search" name="SearchId" id="SearchId" list="ids" class="input" placeholder="Search data...">
+                <datalist id="ids">
+                    <?php
+                        include 'Connect.php';
+
+                        $sql = "SELECT * FROM Customer";
+                        $result = $con->query($sql);
+                        if($result->num_rows > 0){
+                            while($row = $result->fetch_assoc()){
+                                echo "<option value=".$row['Customer_ID']."></option>";
+                            }
+                        }
+                    ?>
+                </datalist>
+                </td>
+                <td class="column"><input type="submit" name="id" value="Search" class="input"></td>
+            </tr>
             <tr class="th">
                 <th class="column">Customer ID</th>
                 <th class="column">Date</th>
@@ -22,8 +41,9 @@
             <?php
 
                 include 'Connect.php';
-
-                $sql = "SELECT * FROM customer";
+            if(isset($_POST["id"])){
+                $CustomerId = $_POST["SearchId"];
+                $sql = "SELECT * FROM customer WHERE Customer_ID='$CustomerId'";
 
                 $result = $con->query($sql);
                 if($result->num_rows > 0){
@@ -42,9 +62,11 @@
                     echo "</tr>";
                     }
                 }
-                $con->close();
+            }
+            $con->close();
             ?>
         
         </table>
+        </form>
     </body>
 </html>

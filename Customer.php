@@ -57,16 +57,16 @@ $con->close();
                     </tr>
                     <tr>
                         <th class="column">Patient Name</th>
-                        <td class="column"><input type="text" name="PatientName" id="PatientName" class="inputs"></td>
+                        <td class="column"><input type="text" name="PatientName" id="PatientName" class="inputs" required></td>
                     </tr>
 
                     <tr>
                         <th class="column">Patient Age</th>
-                        <td class="column"><input type="text" name="PatientAge" id="PatientAge" class="inputs"  maxlength="3"></td>
+                        <td class="column"><input type="text" name="PatientAge" id="PatientAge" class="inputs"  maxlength="3" required></td>
                     </tr>
                     <tr>
                         <th class="column">Gender</th>
-                        <td class="column"><select name="Gender" id="Gender" class="inputs">
+                        <td class="column"><select name="Gender" id="Gender" class="inputs" required>
                             <option value="None">None</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -75,19 +75,19 @@ $con->close();
                     </tr>
                     <tr>
                         <th class="column">Customer Name</th>
-                        <td class="column"><input type="text" name="CustomerName" id="CustomerName" class="inputs"></td>
+                        <td class="column"><input type="text" name="CustomerName" id="CustomerName" class="inputs" required></td>
                     </tr>
                     <tr>
                         <th class="column">Mobile No.</th>
-                        <td class="column"><input type="text" name="MobileNo" id="MobileNo" class="inputs" maxlength="10"></td>
+                        <td class="column"><input type="text" name="MobileNo" id="MobileNo" class="inputs" maxlength="10" required></td>
                     </tr>
                     <tr>
                         <th class="column">Village Name</th>
-                        <td class="column"><input type="text" name="VillageName" id="VillageName" class="inputs"></td>
+                        <td class="column"><input type="text" name="VillageName" id="VillageName" class="inputs" required></td>
                     </tr>
                     <tr>
-                        <th class="column">State Nmae</th>
-                        <td class="column"><select name="StateName" id="StateName" class="inputs">
+                        <th class="column">State Name</th>
+                        <td class="column"><select name="StateName" id="StateName" class="inputs" required>
                             <option value="Assam">Assam</option>
                             <option value="Bihar">Bihar</option>
                             <option value="Gujrat">Gujrat</option>
@@ -98,7 +98,7 @@ $con->close();
                     </tr>
                     <tr>
                         <th>City Name</th>
-                        <td><select name="CityName" id="CityName" class="inputs">
+                        <td><select name="CityName" id="CityName" class="inputs" required>
                         <option value="Arwal">Arwal</option>
                         <option value="Bhagalpur">Bhagalpur</option>
                         <option value="Bhojpur">Bhojpur</option>
@@ -113,7 +113,7 @@ $con->close();
                 </table>
                 <table class="table">
                     <tr>
-                        <th class="column"><input type="submit" value="Submit" class="button"></th>
+                        <th class="column"><input type="submit" value="Create Customer" class="button"></th>
             
                     </tr>
                 </table>

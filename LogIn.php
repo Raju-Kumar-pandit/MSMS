@@ -1,3 +1,11 @@
+<?php
+    include 'Connect.php';
+    session_start();
+
+    if(isset($_SESSION['email'])){
+        echo "<script>window.location.href='Dashbord.php'</script>";
+    }
+?>
 <html>
     <head>
         <title>Log In</title>

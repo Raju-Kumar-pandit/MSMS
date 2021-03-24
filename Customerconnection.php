@@ -19,6 +19,8 @@ VALUES ('$CustomerId','$Date','$PatientName','$PatientAge','$Gender','$CustomerN
 if($con->query($sql)===TRUE)
 {
     echo"New Data Inserted Successfully";
+    echo"<script>alert('New data inserted Successfully')</script>";
+    echo "<script>window.location.href='Dashbord.php'</script>";
 }  else {
     echo $con->error;
 }

@@ -66,7 +66,7 @@
                         if($result->num_rows > 0){
                             while($row= $result->fetch_array()){
                                 $name = $row["Name"];
-                                echo "<option value=".$name."></option>";
+                                echo "<option value='$name'></option>";
                             }
                         }
                         ?>

@@ -73,7 +73,7 @@
                         <td class="column"><input type="text" name="PlaceName" id="PlaceName" class="inputs" required></td>
                     </tr>
                     <tr>
-                        <th class="column">State Nmae</th>
+                        <th class="column">State Namee</th>
                         <td class="column"><select name="StateName" id="StateName" class="inputs" required>
                             <option value="Assam">Assam</option>
                             <option value="Bihar">Bihar</option>
@@ -100,7 +100,7 @@
                 </table>
                 <table class="table">
                     <tr>
-                        <th class="column"><input type="submit" value="Submit" class="button"></th>
+                        <th class="column"><input type="submit" value="Create Supplier" class="button"></th>
             
                     </tr>
                 </table>

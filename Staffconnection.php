@@ -16,7 +16,8 @@
     VALUES('$StaffId','$Date','$StaffName','$Dateofbirth','$Gender','$MobileNo','$EmailId','$VillageName','$StateName','$CityName')";
      
     if($con->query($sql)===TRUE){
-        echo"New Data Inserted Successfully";
+        echo"<script>alert('New Data Inserted Successfully')</script>";
+        echo "<script>window.location.href='Dashbord.php'</script>";
     } else {
         echo $con->error;
     }

@@ -36,7 +36,7 @@ $con->close();
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="colors.css">
     </head>
-    <body onload="dates()">
+    <body onload="dates(), amount()">
     <div>
         <?php include 'Header.php'?>
     </div>
@@ -91,6 +91,8 @@ $con->close();
                             <th class="column">Dicount</th>
                             <th class="column">Amount</th>
                         </tr>
+                    </table>
+                    <table class="table" id="dataTable">
                         <tr><td><input type="text" list="ItemNames" name="ItemName" id="ItemName" class="input">
                                 <datalist id="ItemNames">
                                 <?php
@@ -107,14 +109,21 @@ $con->close();
                                 ?>
                                 </datalist>
                             </td>
-                            <td class="column"><input type="text" name="BatchNo" id="BatchNo" class="input"required></td>
-                            <td class="column"><input type="text" name="Quantity" id="Quantity" class="input" required></td>
-                            <td class="column"><input type="text" name="Rate" id="Rate" class="input" required></td>
-                            <td class="column"><input type="text" name="InputGST" id="InputGST" class="input" required></td>
-                            <td class="column"><input type="text" name="Discount" id="Discount" class="input" required></td>
-                            <td class="column"><input type="text" name="Amount" id="Amount" class="input" onclick="amount()" readonly></td>
+                            <td class="column"><input type="text" name="BatchNo" id="BatchNo" class="input"></td>
+                            <td class="column"><input type="text" name="Quantity" id="Quantity" class="input"></td>
+                            <td class="column"><input type="text" name="Rate" id="Rate" class="input"></td>
+                            <td class="column"><input type="text" name="InputGST" id="InputGST" class="input"></td>
+                            <td class="column"><input type="text" name="Discount" id="Discount" class="input"></td>
+                            <td class="column"><input type="text" name="Amount" id="Amount" class="input" onclick="amount()"></td>
                         </tr>
                        
+                    </table>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="button" value="Append Segment" onClick="addRow('dataTable')" /> 
+                            </td>
+                        </tr>
                     </table>
                 </div>
                 <div>
@@ -172,6 +181,23 @@ $con->close();
                 var b=Number(document.getElementById('PayAmount').value);
                 c=a-b;
                 document.getElementById('DuesAmount').value=c;
+            }
+
+            function addRow(tableID) {
+                var table = document.getElementById(tableID);
+                var rowCount = table.rows.length;
+                if(rowCount < 10){                         
+                    var row = table.insertRow(rowCount);
+                    var colCount = table.rows[0].cells.length;
+                    for(var i=0; i<colCount; i++) {
+                        var newcell = row.insertCell(i);
+                        newcell.innerHTML = table.rows[0].cells[i].innerHTML;
+                        newcell.name = newcell.name + i+1;
+                    }
+                row.cells[2].children[0].value ;            
+                }else{
+                    alert("Maximum Number of Segments is 10.");
+                }
             }
         </script>
     </body>

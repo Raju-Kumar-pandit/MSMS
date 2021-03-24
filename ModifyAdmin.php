@@ -15,7 +15,8 @@
     $sql = "UPDATE  Admin SET Admin_Name='$AdminName', Date='$Date', DOB='$DOB', Gender='$Gender', Mobile_No='$MobileNo', Email_ID='$EmailId', Village_Name='$VillageName', State_Name='$StateName', City_Name='$CityName' WHERE Admin_ID='$AdminId'";
 
     if($con->query($sql)===TRUE){
-        echo"Update Existing data successfully";
+        echo"<script>alert('Update Existing data successfully')</script>";
+        echo "<script>window.location.href='Dashbord.php'</script>";
     } else {
         echo $con->error;
     }

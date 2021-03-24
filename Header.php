@@ -1,3 +1,11 @@
+<?php
+    include 'Connect.php';
+    session_start();
+
+    if(!isset($_SESSION['email'])){
+        echo "<script>window.location.href='LogIn.php'</script>";
+    }
+?>
 <html>
     <head>
         <title>Header</title>
@@ -84,9 +92,6 @@
                         </li>
                         <li>
                             <a href="#">Edit Stock Item</a>
-                        </li>
-                        <li>
-                            <a href="SearchStock.php">Search Stock Item</a>
                         </li>
                         <li>
                             <a href="StockRecord.php">display Stock Item</a>

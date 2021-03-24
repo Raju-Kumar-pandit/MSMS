@@ -37,8 +37,8 @@
         
     } else {
 
-        echo "New record inserted successfully ";
+        echo $con->error;
         
     }
     $con->close();
-?>
+?>+

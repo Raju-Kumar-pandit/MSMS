@@ -124,3 +124,47 @@ function remkid(table) {
     </script>      
 </body>
 </html>
+
+
+
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Test</title>
+</head>
+<body>
+    
+    <table id="dataTable">
+        <tr>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+    </table>
+    <h1>
+        <input type="button" value="Append Segment" onClick="addRow('dataTable')" /> 
+    </h1>
+</body>
+<script>
+    function addRow(tableID) {
+        var table = document.getElementById(tableID);
+        var rowCount = table.rows.length;
+        if(rowCount < 10){                          // limit the user from creating too many segments
+            var row = table.insertRow(rowCount);
+            var colCount = table.rows[0].cells.length;
+            for(var i=0; i<colCount; i++) {
+                var newcell = row.insertCell(i);
+                newcell.innerHTML =         table.rows[0].cells[i].innerHTML;
+            }
+          row.cells[2].children[0].value ;              // Increment value of Segment by 1
+        }else{
+             alert("Maximum Number of Segments is 10.");
+        }
+    }
+</script>
+</html>

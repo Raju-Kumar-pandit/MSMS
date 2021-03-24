@@ -12,25 +12,26 @@
     $Rate = $_POST["Rate"];
     $Amout = $_POST["Amount"];
 
-    $sql = "INSERT INTO stockItem(Date, Item_ID, Item_Name, Unit,Composition, Under, Quantity, Rate, Amount)
-     VALUES ('$Date','$ItemId','$ItemName','$Under','$Unit','$Composition','$Quantity','$Rate','$Amout')";
+    $sql = "INSERT INTO stockItem(Date, Item_ID, Item_Name, Unit, Under, Quantity, Rate, Amount)
+     VALUES ('$Date','$ItemId','$ItemName','$Under','$Unit','$Quantity','$Rate','$Amout')";
    
 
-    if($con->multi_query($sql)===TRUE)
+    if($con->query($sql)===TRUE)
     {
         $sql = "INSERT INTO composition(Composition) VALUES ('$Composition')";
-        if($con->multi_query($sql)===TRUE)
+        if($con->query($sql)===TRUE)
         {
             echo "New data inserted successfully";
         }
         else
         {
-            echo $con->error;
-        }
+            echo "New data inserted successfully";
+         }
     }
     else
     {
-        echo "New data inserted successfully";
+        
+        echo $con->error;
     }
 
     $con->close();

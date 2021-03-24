@@ -13,7 +13,7 @@
         <h1 class="h"> List of Stock Item</h1>
             <table class="tables">
                 <tr>
-                    <td class="column">
+                    <td class="column" colspan ="2">
                     <input type="search" name="SearchId" list="Searchid" id="SearchId" placeholder="Search data....." class="input">
                     <datalist id="Searchid">
                     <?php
@@ -51,7 +51,6 @@
                     include 'Connect.php';
                         if(isset($_POST["id"])){
                             $itemid = $_POST["SearchId"];
-                           // $name = $_POST["SearchId"];
                             $sql = "SELECT * FROM stockItem WHERE Item_ID='$itemid'";
                             $result = $con->query($sql);
                             if($result->num_rows > 0){
