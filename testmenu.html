@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            background-color: aquamarine;
+        }
+        li{
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+        li a{
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+        .text{
+            position: absolute;
+            width: 100%;
+            flex-wrap: wrap;
+            visibility: hidden;
+        }
+        ul li:hover .text{
+            visibility: visible;
+        }
+        .text1{
+            position: absolute;
+            width: 100%;
+            flex-wrap: wrap;
+            left: 100%;
+            visibility: hidden;
+        }
+        .text li:hover .text1{
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a>
+            <ul class="text">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a>
+                    <ul class="text1">
+                        <li><a href="#">Home1</a></li>
+                        <li><a href="#">Home2</a></li>
+                        <li><a href="#">Home3</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+            </ul>
+        
+        </li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+
+    </ul>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        .div1{
+            background-color: chartreuse;
+            width: 100%;
+            float: left;
+            border-radius: 5px;
+        }
+        .div2{
+           background-color: darkgoldenrod;
+           width: 20%;
+           float: left;
+           text-align: center;
+           box-sizing: border-box;
+           padding: 10px;
+           border-radius: 5px;
+        }
+        .div3{
+            background-color: blueviolet;
+            width: 50%;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .div4{
+            background-color: aquamarine;
+            width: 100%;
+            float: left;
+            border-radius: 5px;
+        }
+    
+        .div5{
+            background-color: blue;
+            width: 80%;
+            float: left;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <p>Header</p>
+    </div>
+    <div class="div2">
+        <div class="div3">
+            <p>Admin</p>
+        </div>
+        <div class="div3">
+            <p>Staff</p>
+        </div>
+        <div class="div3">
+            <p>Staff</p>
+        </div>
+    </div>
+    <div class="div5">
+        <p>Main</p>
+        <p>Raju</p>
+        <p>Kumar</p>
+    </div>
+    <div class="div4">
+        <p>Footer</p>
+    </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>Modal Example</h2>
+    
+<!-- Trigger/Open The Modal -->
+<table>
+    <tr>
+        <td>
+            <button id="myBtn">Open Modal</button>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div>
+                    <form action="" method="POST">
+                        <table class="table">
+                            <tr>
+                                <th class="column">Name</th>
+                                <td class="column"><input type="text" name="Name" id="Name" class="inputs"></td>
+                            </tr>
+                        </table>
+                        <table class="table">
+                            <tr>
+                                <td class="column"><input type="submit" value="Submit" class="button" name="Submit"></td>
+                            </tr>
+                        </table>
+                    </form>
+            </div>
+
+            </div>
+        </td>
+    </tr>
+</table>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>

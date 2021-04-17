@@ -16,7 +16,7 @@
      
     if($con->query($sql)===TRUE){
         echo"<script>alert('New data inserted Successfully')</script>";
-        echo "<script>window.location.href='Dashbord.php'</script>";
+        echo "<script>window.location.href='Supplier.php'</script>";
     } else {
         echo $con->error;
     }

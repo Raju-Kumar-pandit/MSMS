@@ -10,10 +10,13 @@
     $Composition =$_POST["Composition"];
     $Quantity = $_POST["Quantity"];
     $Rate = $_POST["Rate"];
-    $Amout = $_POST["Amount"];
+    $Amount = $_POST["Amount"];
+    $StandardRate = $_POST["StandardRate"];
+    $GSTRate = $_POST["GSTRate"];
+    $SaleRate = $_POST["SaleRate"];
 
-    $sql = "INSERT INTO stockItem(Date, Item_ID, Item_Name, Unit, Under, Quantity, Rate, Amount)
-     VALUES ('$Date','$ItemId','$ItemName','$Under','$Unit','$Quantity','$Rate','$Amout')";
+    $sql = "INSERT INTO stockItem(Date, Item_ID, Item_Name, Unit, Under, Quantity, Rate, Amount, Standard_Rate, GST_Rate, Sale_Rate)
+     VALUES ('$Date','$ItemId','$ItemName','$Unit','$Under','$Quantity','$Rate','$Amount','$StandardRate','$GSTRate','$SaleRate')";
    
 
     if($con->query($sql)===TRUE)
@@ -21,12 +24,9 @@
         $sql = "INSERT INTO composition(Composition) VALUES ('$Composition')";
         if($con->query($sql)===TRUE)
         {
-            echo "New data inserted successfully";
+            echo"<script>alert('New data inserted Successfully')</script>";
+            echo "<script>window.location.href='StockItem.php'</script>";
         }
-        else
-        {
-            echo "New data inserted successfully";
-         }
     }
     else
     {

@@ -57,26 +57,12 @@
                                 </tr>
                                 <tr>
                                     <th class='column'>State Nmae</th>
-                                    <td class='column'><select name='StateName' id='StateName' class='inputs' value='$StateName'>
-                                        <option value='Assam'>Assam</option>
-                                        <option value='Bihar'>Bihar</option>
-                                        <option value='Gujrat'>Gujrat</option>
-                                        <option value='Haryana'>Haryana</option>
-                                        <option value='Manipur'>Manipur</option>
-                                    </select>
+                                    <td class='column'><input type='text' name='StateName' id='StateName' class='inputs' value='$StateName'>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class='column'>City Name</th>
-                                    <td class='column'><select name='CityName' id='CityName' class='inputs' value='$CityName'>
-                                    <option value='Arwal'>Arwal</option>
-                                    <option value='Bhagalpur'>Bhagalpur</option>
-                                    <option value='Bhojpur'>Bhojpur</option>
-                                    <option value='Muzaffarpur'>Muzaffarpur</option>
-                                    <option value='Nalanda'>Nalanda</option>
-                                    <option value='Patna'>Patna</option>
-                                    <option value='Vaishali'>Vaishali</option>
-                                    </select>
+                                    <td class='column'><input type='text' name='CityName' id='CityName' class='inputs' value='$CityName'>
                                     </td>
                                 </tr>
                                 <tr>
@@ -85,15 +71,20 @@
                                 </tr>
                                 
                             </table>";
-                        } else {
-                            echo "Empty Table Data";
-                        }
+                        
                 ?>
                <table class='table'>
                     <tr>
-                        <th class='column'><input type='submit' value='Submit' class='button'></th>
+                        <td class='column'><input type='submit' value='Update' class='button'></td>
+            
+                        <td class='column'><button class='button'><a href='DeleteCompany.php?id=<?php echo $row["Company_ID"]; ?>'>Delete</a></button></td>
                     </tr>
                 </table>
+                <?php
+                } else {
+                    echo "Empty Table Data";
+                }
+                ?>
             </form>
         </div>
         <div>

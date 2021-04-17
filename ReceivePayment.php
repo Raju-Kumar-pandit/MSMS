@@ -80,7 +80,7 @@
                 <tr>
                     <th class="column">Dues Amount</th>
 
-                    <td><input type="text" name="DuesAmount" id="DuesAmount" class="inputamount" readonly></td>
+                    <td><input type="text" name="DuesAmount" id="DuesAmount" class="inputamount" ></td>
                 </tr>
                 <tr>
                     <th class="column">Pay Amount</th>

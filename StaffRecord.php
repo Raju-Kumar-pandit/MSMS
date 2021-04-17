@@ -5,27 +5,12 @@
         <link rel="stylesheet" href="colors.css">
     </head>
     <body>
+       <div>
+            <?php include 'Header.php' ?>
+        </div>
         <form action="" method="post">
-        <h1 class="h">List of Staff</h1>
+        <h1 class="h">Lists of Staffs</h1>
         <table class="tables">
-            <tr>
-                <td class="column" colspan="2"><input type="search" name="SearchId" id="SearchId" list="ids" class="input" placeholder="Search data...">
-                <datalist id="ids">
-                    <?php
-                        include 'Connect.php';
-
-                        $sql = "SELECT * FROM staff";
-                        $result = $con->query($sql);
-                        if($result->num_rows > 0){
-                            while($row = $result->fetch_assoc()){
-                                echo "<option value=".$row['Staff_ID']."></option>";
-                            }
-                        }
-                    ?>
-                </datalist>
-                </td>
-                <td class="column"><input type="submit" name="id" value="Search" class="input"></td>
-            </tr>
             <tr class="th">
                 <th class="column">Staff ID</th>
                 <th class="column">Date</th>
@@ -36,16 +21,15 @@
                 <th class="column">Email ID</th>
                 <th class="column">State Name</th>
                 <th class="column">City Name</th>
+                <th class="column">Delete</th>
                 
             </tr>
         
             <?php
 
                 include 'Connect.php';
-            if(isset($_POST["id"])){
-                $StaffId = $_POST["SearchId"];
             
-                $sql = "SELECT * FROM staff WHERE Staff_ID='$StaffId'";
+                $sql = "SELECT * FROM staff";
                 $result = $con->query($sql);
                 if($result->num_rows > 0){
                     while($row = $result->fetch_assoc()){
@@ -59,14 +43,19 @@
                     echo "<td>".$row["Email_ID"]."</td>";
                     echo "<td>".$row["State_Name"]."</td>";
                     echo "<td>".$row["City_Name"]."</td>";
+            ?>
+                    <td><button class="input"><a href='DeleteStaff.php?id=<?php echo $row['Staff_ID']; ?>'>Delete</a></button></td>
+            <?php
                     echo "</tr>";
                     }
                 }
-            }
             $con->close();
             ?>
         
         </table>
         </form>
+        <div>
+            <?php include 'Footer.php' ?>
+        </div>
     </body>
 </html>

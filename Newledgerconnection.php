@@ -5,14 +5,14 @@
     $LedgerId = $_POST["LedgerId"];
     $Name = $_POST["Name"];
     $Under = $_POST["Under"];
-    $StateName = $_POST["StateName"];
-    $CityName = $_POST["CityName"];
+    $OpenAmount = $_POST["OpenAmount"];
 
-    $sql =  "INSERT INTO underGroup (Ledger_ID, Name, Under, State_Name, City_Name)
-    VALUES ('$LedgerId', '$Name', '$Under', '$StateName', '$CityName')";
+    $sql =  "INSERT INTO ledger (Ledger_ID, Name, Under, Opening_Amount)
+    VALUES ('$LedgerId', '$Name', '$Under', '$OpenAmount')";
     
     if($con->query($sql)===TRUE){
-        echo "New data inserted successfully";
+        echo"<script>alert('New Data Inserted Successfully')</script>";
+        echo "<script>window.location.href='NewLedger.php'</script>";
     } else {
         echo $con->error;
     }

@@ -9,40 +9,56 @@
 </head>
 <body>
     <div>
+        <?php include 'Header.php' ?>
+    </div>
+    <div>
         <form action="" method="post">
+        <h1 class="h"> List of Sales Item</h1>
         <table class="tables">
             <tr class="th">
                 <th class="rows">Item Name</th>
                 <th class="rows">Batch No</th>
                 <th class="rows">Quantity</th>
                 <th class="rows">Rate</th>
-                <th class="rows">Input GST</th>
+                <th class="rows">ActualAmt</th>
                 <th class="rows">Discount</th>
+                <th class="rows">SGSTP</th>
+                <th class="rows">SGST</th>
+                <th class="rows">CGSTP</th>
+                <th class="rows">CGST</th>
                 <th class="rows">Amount</th>
+                <th class="rows">Delete</th>
             </tr>
                 <?php 
                     include 'Connect.php';
-                    if(isset($_POST["name"])){
-                        $row = $_POST["SearchID"];
-                        $sql = "SELECT * FROM salesitem Sales_ID='$row' ";
+                        $row = $_GET["id"];
+                        $sql = "SELECT * FROM salesitem WHERE Sales_ID='$row'";
                         $result = $con->query($sql);
                         if($result->num_rows > 0){
-                            while($row->fetch_assoc()){
+                            while($row = $result->fetch_assoc()){
                                 echo "<tr class='thtd'>";
                                 echo "<td>".$row["Item_Name"]."</td>";
                                 echo "<td>".$row["Batch_No"]."</td>";
                                 echo "<td>".$row["Quantity"]."</td>";
                                 echo "<td>".$row["Rate"]."</td>";
-                                echo "<td>".$row["Input_GST"]."</td>";
+                                echo "<td>".$row["Actual_Amount"]."</td>";
                                 echo "<td>".$row["Discount"]."</td>";
+                                echo "<td>".$row["SGSTRate"]."</td>";
+                                echo "<td>".$row["SGSTAmount"]."</td>";
+                                echo "<td>".$row["CGSTRate"]."</td>";
+                                echo "<td>".$row["CGSTAmount"]."</td>";
                                 echo "<td>".$row["Amount"]."</td>";
+                        ?>
+                                <td><button class="input"><a href='DeleteSalesItem.php?id=<?php echo $row['Sales_ID']; ?>'>Delete</a></button></td>
+                        <?php
                                 echo "</tr>";
                             }
                         }
-                    }
+    
                 ?>
         </table>
         </form>
     </div>
+    <?php  include 'Footer.php' ?>
 </body>
 </html>

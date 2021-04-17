@@ -10,12 +10,40 @@
     <div>
         <?php include 'Header.php'?>
     </div>
-    <form action="ModifyCustomer.php" method="POST">
+    <div>
+    <form action="" method="post">
         <h1 class="h">Edit Customer Info</h1>
+        <table class="tables">
+            <tr>
+                <td class="column">
+                <input type="search" name="SearchId" list="Searchid" id="SearchId" placeholder="Search data....." class="inputs">
+                <datalist id="Searchid">
+                <?php
+                include 'Connect.php';
+
+                    $sql = "SELECT * FROM customer";
+                    $result = $con->query($sql);
+                    if($result->num_rows > 0){
+                        while($row= $result->fetch_array()){
+                            $CustomerId = $row["Customer_ID"];
+                            echo "<option value=".$CustomerId."></option>";
+                        }
+                    }
+                ?>
+
+                </datalist>
+                </td>
+                <td class="column"><input type="submit" name="id" value="Search" class="button"></td> 
+            </tr>
+        </table>
+    </form>
+    <form action="ModifyCustomer.php" method="POST">
+        
         <?php 
             include 'Connect.php';
-            
-            $sql = "SELECT * FROM customer WHERE Customer_ID='C00001'";
+        if(isset($_POST['id'])){
+            $CustomerId = $_POST['SearchId'];
+            $sql = "SELECT * FROM customer WHERE Customer_ID='$CustomerId'";
             $result = $con->query($sql);
             if($result->num_rows > 0){
                 $row = $result->fetch_assoc();
@@ -23,7 +51,7 @@
                 $Date = $row['Date'];
                 $PatientName = $row['Patient_Name'];
                 $PatientAge = $row['Patient_Age'];
-                $Gender = $row['Customer_Name'];
+                $Gender = $row['Gender'];
                 $Customer = $row['Customer_Name'];
                 $MobileNo = $row['Mobile_No'];
                 $VillageName = $row['Village_Name'];
@@ -51,11 +79,7 @@
                     </tr>
                     <tr>
                         <th class='column'>Gender</th>
-                        <td class='column'><select name='Gender' id='Gender' class='inputs' value='$Gender'>
-                            <option value='None'>None</option>
-                            <option value='Male'>Male</option>
-                            <option value='Female'>Female</option>
-                        </select>
+                        <td class='column'><input type='text' name='Gender' id='Gender' class='inputs' value='$Gender'>
                         </td>
                     </tr>
                     <tr>
@@ -72,42 +96,32 @@
                     </tr>
                     <tr>
                         <th class='column'>State Name</th>
-                        <td class='column'><select name='StateName' id='StateName' class='inputs' value='$StateName'>
-                            <option value='Assam'>Assam</option>
-                            <option value='Bihar'>Bihar</option>
-                            <option value='Gujrat'>Gujrat</option>
-                            <option value='Haryana'>Haryana</option>
-                            <option value='Manipur'>Manipur</option>
-                        </select>
+                        <td class='column'><input type='text' name='StateName' id='StateName' class='inputs' value='$StateName'>
                         </td>
                     </tr>
                     <tr>
                         <th>City Name</th>
-                        <td><select name='CityName' id='CityName' class='inputs' value='$CityName'>
-                        <option value='Arwal'>Arwal</option>
-                        <option value='Bhagalpur'>Bhagalpur</option>
-                        <option value='Bhojpur'>Bhojpur</option>
-                        <option value='Muzaffarpur'>Muzaffarpur</option>
-                        <option value='Nalanda'>Nalanda</option>
-                        <option value='Patna'>Patna</option>
-                        <option value='Vaishali'>Vaishali</option>
-                        </select>
+                        <td><input type='text' name='CityName' id='CityName' class='inputs' value='$CityName'>
                         </td>
                     </tr>
                     
                 </table>";
-            } else {
-                echo $con->error;
-            }
+            
         ?>
                  <table class="table">
                     <tr>
-                        <th class="column"><input type="submit" value="Update" class="button"></th>
-            
+                        <td class="column"><input type="submit" value="Update" class="button"></td>
+                        <td class="column"><button class="button"><a href='DeleteCustomer.php?id=<?php echo $row['Customer_ID']; ?>'>Delete</a></button></td>
                     </tr>
                 </table>
-
+        <?php
+            } else {
+                echo "Data is Empty";
+            }
+        }
+        ?>
     </form>
+    </div>
     <div>
         <?php include 'Footer.php'?>
     </div>

@@ -1,4 +1,5 @@
 <?php
+    $SupplierId = null;
     include 'Connect.php';
 
     $PaymentId = NULL;
@@ -40,7 +41,7 @@
             <?php include 'Header.php' ?>
         </div>
         <div>
-            <form action="Paymentconnection.php" method="POST">
+            <form action="" method="POST" id="forms">
                 <h1 class="h">Payment form</h1>
             <table class="table">
                 <tr>
@@ -49,23 +50,42 @@
                     <th class="column">Date</th>
                     <td class="column"><input type="text" name="Date" id="Date" class="input" onclick="dates()" readonly></td>
                 </tr>
-                <tr>
-                    <th class="column">Supplier ID</th>
-                    <td class="column"><input type="text" list="Ids" name="SupplierId" id="SupplierId" class="input">
-                        <datalist id="Ids">
-                        <?php
-                        include 'Connect.php';
-
-                        $sql = "SELECT * FROM purchase";
+                <?php
+                include 'Connect.php';
+                $add=null;
+                if(isset($_POST['SupplierId'])){
+                    $supplierid = $_POST['SupplierId'];
+                    //$add =0;
+                    $sql = "SELECT * FROM purchase  WHERE Supplier_ID='$supplierid'";    
                         $result = $con->query($sql);
                         if($result->num_rows > 0){
-                            while($row= $result->fetch_assoc()){
-                                $supplierid = $row["Supplier_ID"];
-                                echo "<option value=".$supplierid."></option>";
+                            while($row= $result->fetch_assoc()){;
+                               $DuesAmount = $row["Dues_Amount"];
+                               $SupplierId = $row["Supplier_ID"];
+                                $add = $add + $DuesAmount;
+                            }
+                            echo $add;
+                        }
+                }
+                ?>
+                <tr>
+                    <th class="column">Supplier ID</th>
+                    <td class="column"><input type="text" list="Ids" name="SupplierId" id="SupplierId" class="input" onblur="document.getElementById('forms').submit()" formaction="" value="<?php echo $SupplierId?>">
+                    <datalist id="Ids">
+                    <?php
+                    include 'Connect.php';
+
+                        $sql = "SELECT * FROM supplier";
+                        $result = $con->query($sql);
+                        if($result->num_rows > 0){
+                            while($row= $result->fetch_array()){
+                                $SupplierId = $row["Supplier_ID"];
+                                echo "<option value=".$SupplierId."></option>";
                             }
                         }
-                        ?>
-                        </datalist>
+                    ?>
+
+                    </datalist> 
                     </td>
                     <th class="column">Mode</th>
                     <td class="column"><select name="Mode" id="Mode" class="input" required>
@@ -78,7 +98,7 @@
             <table class="table">
                 <tr>
                     <th class="column">Dues Amount</th>
-                    <td><input type="text" name="DuesAmount" id="DuesAmount" class="inputamount" required></td>
+                    <td><input type="text" list="ids" name="DuesAmount" id="DuesAmount" class="inputamount" value="<?php echo $add; ?>" required></td>
                 </tr>
                 <tr>
                     <th class="column">Pay Amount</th>
@@ -94,7 +114,7 @@
                     <td class="column"><input type="submit" value="Submit" class="button"></td>
                 </tr>
             </table>
-            </form>
+            </form>                                                                           
         </div>
         <div>
             <?php include 'Footer.php' ?>

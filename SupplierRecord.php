@@ -5,26 +5,13 @@
         <link rel="stylesheet" href="colors.css">
     </head>
     <body>
+        <div>
+            <?php include 'Header.php' ?>
+        </div>
         <form action="" method="post">
+        <h1 class="h">Lists of Suppliers</h1>
         <table class="tables">
-            <tr>
-                <td class="column" colspan="2"><input type="search" name="SearchId" id="SearchId" list="ids" class="input" placeholder="Search data...">
-                <datalist id="ids">
-                    <?php
-                        include 'Connect.php';
-
-                        $sql = "SELECT * FROM supplier";
-                        $result = $con->query($sql);
-                        if($result->num_rows > 0){
-                            while($row = $result->fetch_assoc()){
-                                echo "<option value=".$row['Supplier_ID']."></option>";
-                            }
-                        }
-                    ?>
-                </datalist>
-                </td>
-                <td class="column"><input type="submit" name="id" value="Search" class="input"></td>
-            </tr>
+            
             <tr class="th">
                 <th class="column">Supplier ID</th>
                 <th class="column">Date</th>
@@ -35,15 +22,13 @@
                 <th class="column">Place Name</th>
                 <th class="column">State Name</th>
                 <th class="column">City Name</th>
-                
+                <th class="column">Delete</th>
             </tr>
         
             <?php
 
                 include 'Connect.php';
-            if(isset($_POST["id"])){
-                $SupplierId = $_POST["SearchId"];
-                $sql = "SELECT * FROM supplier WHERE Supplier_ID='$SupplierId'";
+                $sql = "SELECT * FROM supplier";
 
                 $result = $con->query($sql);
                 if($result->num_rows > 0){
@@ -58,14 +43,19 @@
                     echo "<td>".$row["Place_Name"]."</td>";
                     echo "<td>".$row["State_Name"]."</td>";
                     echo "<td>".$row["City_Name"]."</td>";
+            ?>
+                    <td><button class="input"><a href='DeleteSupplier.php?id=<?php echo $row['Supplier_ID']; ?>'>Delete</a></button></td>
+            <?php
                     echo "</tr>";
                     }
                 }
-            }
-            $con->close();
+                $con->close();
             ?>
         
         </table>
         </form>
+        <div>
+            <?php include 'Footer.php' ?>
+        </div>
     </body>
 </html>

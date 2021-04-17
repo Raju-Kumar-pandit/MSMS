@@ -72,28 +72,43 @@
                         <th class="column">Place Name</th>
                         <td class="column"><input type="text" name="PlaceName" id="PlaceName" class="inputs" required></td>
                     </tr>
-                    <tr>
-                        <th class="column">State Namee</th>
-                        <td class="column"><select name="StateName" id="StateName" class="inputs" required>
-                            <option value="Assam">Assam</option>
-                            <option value="Bihar">Bihar</option>
-                            <option value="Gujrat">Gujrat</option>
-                            <option value="Haryana">Haryana</option>
-                            <option value="Manipur">Manipur</option>
-                        </select>
+                    <tr> 
+                    <th class="column">State Name</th>
+                        <td class="column"><input type="text" list="id" name="StateName" id="StateName" class="inputs" required>
+                        <datalist id="id">
+                            <?php
+                            include 'Connect.php';
+
+                                $sql = "SELECT * FROM state";
+                                $result = $con->query($sql);
+                                if($result->num_rows > 0){
+                                    while($row= $result->fetch_array()){
+                                        $state = $row["State_Name"];
+                                        echo "<option value='$state'></option>";
+                                    }
+                                }
+                                $con->close();
+                            ?>
+                        </datalist>
                         </td>
                     </tr>
                     <tr>
                         <th class="column">City Name</th>
-                        <td class="column"><select name="CityName" id="CityName" class="inputs" required>
-                        <option value="Arwal">Arwal</option>
-                        <option value="Bhagalpur">Bhagalpur</option>
-                        <option value="Bhojpur">Bhojpur</option>
-                        <option value="Muzaffarpur">Muzaffarpur</option>
-                        <option value="Nalanda">Nalanda</option>
-                        <option value="Patna">Patna</option>
-                        <option value="Vaishali">Vaishali</option>
-                        </select>
+                        <td class="column"><input type="text" name="CityName" list="Id" id="CityName" class="inputs" required>
+                        <datalist id="Id">
+                            <?php
+                            include 'Connect.php';
+
+                                $sql = "SELECT * FROM DistrictName";
+                                $result = $con->query($sql);
+                                if($result->num_rows > 0){
+                                    while($row= $result->fetch_array()){
+                                        $CityName = $row["District_Name"];
+                                        echo "<option value='$CityName'></option>";
+                                    }
+                                }
+                            ?>
+                        </datalist>
                         </td>
                     </tr>
                    

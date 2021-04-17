@@ -15,7 +15,8 @@
     
     if($con->query($sql)===TRUE)
     {
-        echo "New data inserted successfully";
+        echo "<script>alert('New data inserted successfully')</script>";
+        echo "<script>window.location.href='ReceivePayment.php'</script>";
     }
     else
     {

@@ -13,7 +13,11 @@
     $BatchNo = $_POST["BatchNo"];
     $Quantity = $_POST["Quantity"];
     $Rate = $_POST["Rate"];
-    $InputGSt = $_POST["InputGST"];
+    $ActualAmt = $_POST["ActualAmt"];
+    $SGSTRate = $_POST["SGSTP"];
+    $SGSTAmount = $_POST["SGST"];
+    $CGSTRate = $_POST["CGSTP"];
+    $CGSTAmount = $_POST["CGST"];
     $Amount = $_POST["Amount"];
     $Discount = $_POST["Discount"];
 
@@ -22,13 +26,13 @@
 
     if($con->query($sql)===TRUE){
 
-        $sql = "INSERT INTO salesItem(Sales_ID,Item_Name,Batch_No,Quantity,Rate,Input_GST,Discount,Amount) 
-        VALUES('$SalesId','$ItemName','$BatchNo','$Quantity','$Rate','$InputGSt','$Discount','$Amount')";
+        $sql = "INSERT INTO salesItem(Sales_ID,Item_Name,Batch_No,Quantity,Rate,Discount,Actual_Amount,Amount,SGSTRate,SGSTAmount,CGSTRate,CGSTAmount) 
+        VALUES('$SalesId','$ItemName','$BatchNo','$Quantity','$Rate','$Discount','$ActualAmt','$Amount','$SGSTRate','$SGSTAmount','$CGSTRate','$CGSTAmount')";
 
         if($con->query($sql)===TRUE){
 
-            echo "New record inserted successfully ";
-
+            echo"<script>alert('New data inserted Successfully')</script>";
+            echo "<script>window.location.href='Sales.php'</script>";
         } else {
 
             echo $con->error;
@@ -41,4 +45,4 @@
         
     }
     $con->close();
-?>+
+?>

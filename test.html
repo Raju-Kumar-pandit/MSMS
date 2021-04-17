@@ -1,6 +1,28 @@
 <html>
     <head>
         <title>Java Script</title>
+        <style>
+            table{
+    width: 100%;
+    
+
+}
+
+.column {
+    width:30%;
+    height: 40px;
+    font-size: 20px;
+    padding-top: 5px;
+}
+.input{
+
+    width:30%;
+    height: 30px;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 16px;
+}
+        </style>
     </head>
     <body>
         <div>
@@ -31,6 +53,41 @@
             </form>
             <button onclick="input()">click</button>
         </div>
+        <div >
+            <p>Calculate GST</p>
+            <form  id="form" action="">
+                
+                <input type="text" name="OutputGST" id="OutputGST"onclick="gst()" >
+               
+            </form>
+            <button onclick="gst()">click</button>
+        </div>
+        <div>
+            <table border="1">
+                <tr>
+                    <td class="column"><input type="text" name="" id="" class="input"></td>
+                </tr>
+                <tr>
+                    <td class="column"><input type="text" name="" id="" class="input"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" id="" class="input"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="" id=""></td>
+                </tr>
+
+            </table>
+        </div>
        
         <script>
             function mg(){
@@ -48,7 +105,11 @@
                     document.getElementById('n').innerHTML="I  am Fine. are you";
                 }
             }
-
+            function gst(){
+                var tax=5;
+                taxes=(tax*100)/(tax+100);
+                document.getElementById('OutputGST').value=taxes;
+            }
              function fun() {
                 /*Getting the number of text fields*/
                 //var no =document.getElementById("num").value;

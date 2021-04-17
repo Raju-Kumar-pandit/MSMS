@@ -39,7 +39,7 @@
                 <li>Company
                     <ul>
                         <li>
-                            <a href="EditCompany.php">Edit Company</a>
+                            <a href="EditCompany.php">EditCompany</a>
                         </li>
                         <li>
                             <a href="CompanyRecord.php">display</a>
@@ -78,10 +78,10 @@
                             <a href="Newledger.php">New Ledger</a>
                         </li>
                         <li>
-                            <a href="#">Edit Ledger</a>
+                            <a href="EditLedger.php">Edit Ledger</a>
                         </li>
                         <li>
-                            <a href="#">display</a>
+                            <a href="LedgerRecord.php">display</a>
                         </li>
                     </ul>
                 </li>
@@ -91,7 +91,7 @@
                             <a href="StockItem.php">New Stock Item</a>
                         </li>
                         <li>
-                            <a href="#">Edit Stock Item</a>
+                            <a href="EditStockItem.php">Edit Stock Item</a>
                         </li>
                         <li>
                             <a href="StockRecord.php">display Stock Item</a>
@@ -117,7 +117,7 @@
                             <a href="Sales.php">New Sales Item</a>
                         </li>
                         <li>
-                            <a href="#">Edit Sales Item</a>
+                            <a href="EditSales.php">Edit Sales Item</a>
                         </li>
                         <li>
                             <a href="SalesRecord.php">display</a>
@@ -143,7 +143,7 @@
                             <a href="Purchase.php">New Purchase</a>
                         </li>
                         <li>
-                            <a href="#">Edit Purchase</a>
+                            <a href="EditPurchase.php">Edit Purchase</a>
                         </li>
                         <li>
                             <a href="#">New Order Item</a>
@@ -162,7 +162,7 @@
                             <a href="ReceivePayment.php">New Receive Payment</a>
                         </li>
                         <li>
-                            <a href="#">Edit Receive Payment</a>
+                            <a href="EditReceivePayment.php">Edit Receive Payment</a>
                         </li>
                         <li>
                             <a href="ReceivePaymentRecord.php">display</a>
@@ -175,7 +175,7 @@
                             <a href="Payment.php">New Pament</a>
                         </li>
                         <li>
-                            <a href="#">Edit Payment</a>
+                            <a href="EditPayment.php">Edit Payment</a>
                         </li>
                         <li>
                             <a href="PaymentRecord.php">display</a>
@@ -230,6 +230,9 @@
                             <a href="#">Summary Report</a>
                         </li>
                     </ul>
+                </li>
+                <li>
+                    <a href="LogOut.php">Log Out</a>
                 </li>
             </ul>
         </div>

@@ -60,19 +60,60 @@
                     </tr>
                     <tr>
                         <th class="column">Under</th>
-                        <td class="column"><input type="text" name="Under" id="Under" class="inputs" required></td>
+                        <td class="column"><input type="text" list="ids" name="Under" id="Under" class="inputs" required>
+                            <datalist id="ids">
+                            <?php 
+                                include 'Connect.php';
+                                $sql = "SELECT * FROM Under";
+                                $result = $con->query($sql);
+                                if($result->num_rows > 0){
+                                    while($row = $result->fetch_assoc()){
+                                        echo "<option value=".$row['Under_Name']."> </option>";
+                                        
+                                    }
+                                }
+                            ?>
+                            </datalist>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                    <th class="column">Create New Under</th>
+                    <td class="column">
+                        <button id="myBtn" class="inputs" type="button">Create</button>
+
+                        
+                    </td>
                     </tr>
                     <tr>
                         <th class="column">Unit</th>
-                        <td><select name="Unit" id="Unit" class="inputs" required>
-                            <option value="None">None</option>
-                            <option value="stripts">stripts</option>
-                            <option value="Tablet">Tablet</option>
-                            <option value="Botal">Botal</option>
-                            <option value="Drops">Drops</option>
-                            <option value="vile">Vile</option>
-                            <option value="syrup">Syrup</option>
-                        </select></td>
+                        <td><input type='text' name="Unit" list="id" id="Unit" class="inputs" required>
+                            <datalist id="id">
+                                <?php
+                                    include 'Connect.php';
+
+                                    $sql = "SELECT * FROM unit";
+                                    $result = $con->query($sql);
+                                    if($result->num_rows > 0){
+                                        while($row = $result->fetch_array()){
+                                            echo "<option value=".$row['UnitName']."> </option>";
+                                        }
+                                    }
+                                ?>
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="column">Standard Rate</th>
+                        <td class="column"><input type="text" name="StandardRate" id="StandardRate" class="inputs" required></td>
+                    </tr>
+                    <tr>
+                        <th class="column"> GST Rate %</th>
+                        <td class="column"><input type="text" name="GSTRate" id="GSTRate" class="inputs"></td>
+                    </tr>
+                    <tr>
+                        <th class="column">Salling Rate</th>
+                        <td class="column"><input type="text" name="SaleRate" id="SaleRate" class="inputs"></td>
                     </tr>
                     <tr>
                         <th class="column">Composition Name</th>
@@ -80,7 +121,7 @@
                     </tr>
                 </table>
                 <table class="table">
-                    <caption class="Item">Opning Amount</caption>
+                    <caption class="Item">Opening Amount</caption>
                     <tr>
                         <th class="column">Quantity</th>
                         <td class="column"><input type="text" name="Quantity" id="Quantity" class="inputs"></td>
@@ -97,15 +138,65 @@
                 </table>
                 <table class="table">
                     <tr>
-                        <td class="column"><input type="submit" value="Submit" class="button"></td>
+                        <td class="column"><input type="submit" value="Save" class="button"></td>
                     </tr>
                 </table>
             </form>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div>
+                    <form action="CreateUnder.php" method="POST">
+                        <table class="table">
+                            <tr>
+                                <th class="column">Name</th>
+                                <td class="column"><input type="text" name="Name" id="Name" class="input"></td>
+                            </tr>
+                        </table>
+                        <table class="table">
+                            <tr>
+                                <td class="column"><input type="submit" value="Submit" name="Submit" class="button"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div> 
+            </div>
         </div>
         <div>
             <?php include 'Footer.php' ?>
         </div>
         <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on the button, open the modal
+            btn.onclick = function() {
+            modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+            modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            }
+
+
             function dates() {
 			var today = new Date();
 			var dd = String(today.getDate()).padStart(2, '0');
@@ -125,7 +216,7 @@
             document.getElementById('Amount').value=c;
             document.getElementById('TotalAmount').value=c;
             }
-
+            
         </script>
     </body>
 </html>

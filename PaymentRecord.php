@@ -5,6 +5,10 @@
         <link rel="stylesheet" href="colors.css">
     </head>
     <body>
+        <div>
+            <?php include 'Header.php' ?>
+        </div>
+        <h1 class="h">List of Payment</h1>
          <table class="tables">
             <tr class="th">
                 <th class="column">Payment ID</th>
@@ -14,6 +18,7 @@
                 <th class="column">Dues Amount</th>
                 <th class="column">Pay Amount</th>
                 <th class="column">Current Dues Amount</th>
+                <th class="column">Delete</th>
             </tr>
         
             <?php
@@ -33,6 +38,9 @@
                     echo "<td>".$row["Dues_Amount"]."</td>";
                     echo "<td>".$row["Pay_Amount"]."</td>";
                     echo "<td>".$row["Current_Dues_Amount"]."</td>";
+                    ?>
+                    <td class="column"><button class="input"><a href='DeletePayment.php?id=<?php echo $row['Payment_ID']; ?>'>Delete</a></button></td>
+                    <?php
                     echo "</tr>";
                     }
                 }
@@ -40,5 +48,8 @@
             ?>
         
         </table>
+        <div>
+            <?php include 'Footer.php' ?>
+        </div>
     </body>
 </html>

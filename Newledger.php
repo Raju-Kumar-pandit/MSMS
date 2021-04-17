@@ -69,33 +69,14 @@
                                 echo "<option value='$name'></option>";
                             }
                         }
+                        $con->close();
                         ?>
                         </datalist>
                     </td>
                 </tr>
                 <tr>
-                    <th class="column">State Nmae</th>
-                        <td class="column"><select name="StateName" id="StateName" class="inputs">
-                            <option value="Assam">Assam</option>
-                            <option value="Bihar">Bihar</option>
-                            <option value="Gujrat">Gujrat</option>
-                            <option value="Haryana">Haryana</option>
-                            <option value="Manipur">Manipur</option>
-                        </select>
-                     </td>
-                </tr>
-                <tr>
-                    <th class="column">City Name</th>
-                    <td class="column"><select name="CityName" id="CityName" class="inputs">
-                        <option value="Arwal">Arwal</option>
-                        <option value="Bhagalpur">Bhagalpur</option>
-                        <option value="Bhojpur">Bhojpur</option>
-                        <option value="Muzaffarpur">Muzaffarpur</option>
-                        <option value="Nalanda">Nalanda</option>
-                        <option value="Patna">Patna</option>
-                        <option value="Vaishali">Vaishali</option>
-                        </select>
-                        </td>
+                    <th class="column">Opening Amount</th>
+                    <td class="column"><input type="text" name="OpenAmount" id="OpenAmount" class="inputs"></td>
                 </tr>
             </table>
             <table class="table">

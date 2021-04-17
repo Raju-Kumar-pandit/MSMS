@@ -1,34 +1,18 @@
 <html>
     <head>
         <title>Admin Record</title>
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="colors.css">
     </head>
     <body>
+        <div>
+            <?php include 'Header.php' ?>
+        </div>
         <form action="" method="post">
-        <h1 class="h">List of Admin</h1>
+        <h1 class="h">Lists of Admins</h1>
         <table class="tables">
-            <tr>
-                <td class="column" colspan="2">
-                <input type="search" name="SearchId" list="Searchid" id="SearchId" placeholder="Search data....." class="input">
-                <datalist id="Searchid">
-                <?php
-                include 'Connect.php';
-
-                    $sql = "SELECT * FROM admin";
-                    $result = $con->query($sql);
-                    if($result->num_rows > 0){
-                        while($row= $result->fetch_array()){
-                            $AdminId = $row["Admin_ID"];
-                            echo "<option value=".$AdminId."></option>";
-                        }
-                    }
-                ?>
-
-                </datalist>
-                </td>
-                <td class="column"><input type="submit" name="id" value="Search" class="input"></td> 
-            </tr>
+            
             <tr class="th">
                 <th class="column">Admin ID</th>
                 <th class="column">Date</th>
@@ -40,14 +24,12 @@
                 <th class="column">Village Name</th>
                 <th class="column">State Name</th>
                 <th class="column">City Name</th>
-                
+                <th class="column">Delete</th>
             </tr>
             <?php
 
                 include 'Connect.php';
-                if(isset($_POST["id"])){
-                    $AdminId = $_POST["SearchId"];
-                    $sql = "SELECT * FROM admin WHERE Admin_ID='$AdminId'";
+                    $sql = "SELECT * FROM admin";
 
                     $result = $con->query($sql);
                     if($result->num_rows > 0){
@@ -64,15 +46,20 @@
                         echo "<td>".$row["Village_Name"]."</td>";
                         echo "<td>".$row["State_Name"]."</td>";
                         echo "<td>".$row["City_Name"]."</td>";
+            ?>
+                        <td><button class="input"><a href='DeleteAdmin.php?id=<?php echo $row['Admin_ID']; ?>'>Delete</a></button></td>
+            <?php
                         echo "</tr>";
                         }
                         
                     }
-                }
-    
+                
             ?>
             </tr>
         </table>
         </form>
+        <div>
+            <?php include 'Footer.php' ?>
+        </div>
     </body>
 </html>

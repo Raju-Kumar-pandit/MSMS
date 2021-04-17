@@ -12,12 +12,38 @@
         <?php include 'Header.php'?>
     </div>
     <div>
-        <form action="ModifySupplier.php" method="post">
-        <h1 class="h">Edit Supplier Info form</h1>
-            <?php
+    <form action="" method="post">
+        <h1 class="h">Edit Supplier Info</h1>
+        <table class="tables">
+            <tr>
+                <td class="column">
+                <input type="search" name="SearchId" list="Searchid" id="SearchId" placeholder="Search data....." class="inputs">
+                <datalist id="Searchid">
+                <?php
                 include 'Connect.php';
 
-                $sql = "SELECT * FROM Supplier WHERE Supplier_ID='S00001'";
+                    $sql = "SELECT * FROM supplier";
+                    $result = $con->query($sql);
+                    if($result->num_rows > 0){
+                        while($row= $result->fetch_array()){
+                            $SupplierId = $row["Supplier_ID"];
+                            echo "<option value=".$SupplierId."></option>";
+                        }
+                    }
+                ?>
+
+                </datalist>
+                </td>
+                <td class="column"><input type="submit" name="id" value="Search" class="button"></td> 
+            </tr>
+        </table>
+    </form>
+        <form action="ModifySupplier.php" method="post">
+            <?php
+                include 'Connect.php';
+            if(isset($_POST['id'])){
+                $SupplierId = $_POST['SearchId'];
+                $sql = "SELECT * FROM Supplier WHERE Supplier_ID='$SupplierId'";
                 $result = $con->query($sql);
                 if($result->num_rows > 0 ){
                     $row = $result->fetch_assoc();
@@ -61,41 +87,31 @@
                     </tr>";
                     echo "<tr>
                         <th class='column'>State Nmae</th>
-                        <td class='column'><select name='StateName' id='StateName' class='inputs' value='$StateName' required>
-                            <option value='Assam'>Assam</option>
-                            <option value='Bihar'>Bihar</option>
-                            <option value='Gujrat'>Gujrat</option>
-                            <option value='Haryana'>Haryana</option>
-                            <option value='Manipur'>Manipur</option>
-                        </select>
+                        <td class='column'><input type='text' name='StateName' id='StateName' class='inputs' value='$StateName' required>
                         </td>
                     </tr>
                     <tr>
                         <th class='column'>City Name</th>
-                        <td class='column'><select name='CityName' id='CityName' class='inputs' value='$CityName' required>
-                        <option value='Arwal'>Arwal</option>
-                        <option value='Bhagalpur'>Bhagalpur</option>
-                        <option value='Bhojpur'>Bhojpur</option>
-                        <option value='Muzaffarpur'>Muzaffarpur</option>
-                        <option value='Nalanda'>Nalanda</option>
-                        <option value='Patna'>Patna</option>
-                        <option value='Vaishali'>Vaishali</option>
-                        </select>
+                        <td class='column'><input type='text' name='CityName' id='CityName' class='inputs' value='$CityName' required>
                         </td>
                     </tr>
                    
                 </table>";
-                } else {
-                    echo $con->error;
-                }
+                
             ?>
                 <table class="table">
                     <tr>
-                        <th class="column"><input type="submit" value="Update" class="button"></th>
-            
+                        <td class="column"><input type="submit" value="Update" class="button"></td>
+                        <td class="column"><button class="button"><a href='DeleteSupplier.php?id=<?php echo $row['Supplier_ID']; ?>'>Delete</a></button></td>
                     </tr>
                 </table>
-        </form>    
+        </form>
+        <?php
+            } else {
+                    echo $con->error;
+                }
+            }
+        ?>
     </div>
     <div>
         <?php include 'Footer.php'?>

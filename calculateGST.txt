@@ -1,0 +1,40 @@
+	Price List
+
+	Standard Rate
+
+	GST on MRP
+
+	90	-	Shipping charges + GST
+
+	Tax - 
+
+	Income Tax
+	
+	Goods + Services
+		0%, 5%, 12%, 18%, 28%
+		Essential Comodity	
+
+	40,00,000	-	Excemption Limit
+
+	100	-	10
+
+	100 5%	105
+	150 5%  157.5
+
+	(Tax X 100)/(Tax + 100)
+	5 X 100/5 + 100
+	500/105
+
+	4.76 %
+	142.86 + 7.14 (150)
+
+	18 *100/18 + 100
+
+
+	555 = 84.66 
+	1800/118	=		
+
+	555 = 84.66 + 470.34
+
+Exclusive	-	Tax is not included in the rate	 799 X 18%	=	143.82	=	799 + 143.82 = 942.82
+Inclusive   -	Tax is included in the rate		 555 

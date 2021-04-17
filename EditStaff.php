@@ -12,12 +12,38 @@
         <?php include 'Header.php' ?>
     </div>
     <div>
+        <form action="" method="post">
+            <h1 class="h">Edit Staff Info</h1>
+            <table class="tables">
+                <tr>
+                    <td class="column">
+                    <input type="search" name="SearchId" list="Searchid" id="SearchId" placeholder="Search data....." class="inputs">
+                    <datalist id="Searchid">
+                    <?php
+                    include 'Connect.php';
+
+                        $sql = "SELECT * FROM staff";
+                        $result = $con->query($sql);
+                        if($result->num_rows > 0){
+                            while($row= $result->fetch_array()){
+                                $CustomerId = $row["Staff_ID"];
+                                echo "<option value=".$CustomerId."></option>";
+                            }
+                        }
+                    ?>
+
+                    </datalist>
+                    </td>
+                    <td class="column"><input type="submit" name="id" value="Search" class="button"></td> 
+                </tr>
+            </table>
+        </form>
         <form action="ModifyStaff.php" method="POST">
-            <h1 class='h'>Edit Company Info </h1>
                 <?php 
                     include 'Connect.php';  
-
-                    $sql = "SELECT * FROM staff where Staff_ID='S00001'";
+                if(isset($_POST['id'])){
+                    $StaffId = $_POST['SearchId'];
+                    $sql = "SELECT * FROM staff where Staff_ID='$StaffId'";
 
                     $result =$con->query($sql);
 
@@ -54,11 +80,7 @@
                             </tr>
                             <tr>
                                 <th class='column'>Gender</th>
-                                <td class='column'><select name='Gender' id='Gender' class='inputs' value='$Gender' required>
-                                    <option value='None'>None</option>
-                                    <option value='Male'>Male</option>
-                                    <option value='Female'>Female</option>
-                                </select>
+                                <td class='column'><input type='text' name='Gender' id='Gender' class='inputs' value='$Gender' required>
                                 </td>
                             </tr>
                             <tr>
@@ -75,42 +97,32 @@
                             </tr>
                             <tr>
                                 <th class='column'>State Nmae</th>
-                                <td class='column'><select name='StateName' id='StateName' class='inputs' value='$StaffName' required>
-                                    <option value='Assam'>Assam</option>
-                                    <option value='Bihar'>Bihar</option>
-                                    <option value='Gujrat'>Gujrat</option>
-                                    <option value='Haryana'>Haryana</option>
-                                    <option value='Manipur'>Manipur</option>
-                                </select>
+                                <td class='column'><input type='text' name='StateName' id='StateName' class='inputs' value='$StaffName' required>
                                 </td>
                             </tr>
                             <tr>
                                 <th class='column'>City Name</th>
-                                <td class='column'><select name='CityName' id='CityName' class='inputs' value='$CityName' required>
-                                <option value='Arwal'>Arwal</option>
-                                <option value='Bhagalpur'>Bhagalpur</option>
-                                <option value='Bhojpur'>Bhojpur</option>
-                                <option value='Muzaffarpur'>Muzaffarpur</option>
-                                <option value='Nalanda'>Nalanda</option>
-                                <option value='Patna'>Patna</option>
-                                <option value='Vaishali'>Vaishali</option>
-                                </select>
+                                <td class='column'><input type='text' name='CityName' id='CityName' class='inputs' value='$CityName' required>
                                 </td>
                             </tr>
                            
                         </table>";
-                        } else {
-                            echo "Empty Table Data";
-                        }
+                        
                 ?>
                 <table class="table">
                     <tr>
-                        <th class="column"><input type="submit" value="Update" class="button"></th>
-            
+                        <td class="column"><input type="submit" value="Update" class="button"></td>
+                        <td class="column"><button class="button"><a href='DeleteStaff.php?id=<?php echo $row['Staff_ID']; ?>'>Delete</a></button></td>
                     </tr>
                 </table>
         </form>
     </div>
+        <?php
+        } else {
+            echo "Empty Table Data";
+        }
+    }
+        ?>
     <div>
         <?php include 'Footer.php' ?>
     </div>
