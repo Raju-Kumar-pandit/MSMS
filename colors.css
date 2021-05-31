@@ -194,4 +194,11 @@ ul li:hover > ul{
     text-decoration: none;
     cursor: pointer;
   }
-  
+  /*-------Dasboard chart------*/
+  .div12 {
+    background : gray;
+    width:24%;
+    margin:2px;
+    border-radius:10px;
+
+}

@@ -38,7 +38,7 @@
 
                 </datalist>
                 </td>
-                <td class="column"><input type="submit" name="id" value="Search" class="input"></td>
+                <td><input type="submit" name="id" value="Search" class="input"></td>
             </tr>
             </table>
         </form>
@@ -84,6 +84,7 @@
                     <tr>
                         <th class="Item">Item Name</th>
                         <th class="column">Batch No.</th>
+                        <th class="column">Expiry Date</th>
                         <th class="column">Quantity</th>
                         <th class="column">Rate</th>
                         <th class="column">Dicount</th>
@@ -118,7 +119,7 @@
                                 $CGSTRate = $row["CGSTRate"];
                                 $CGSTAmount = $row["CGSTAmount"];
                                 $Amount = $row["Amount"];
-                                
+                                $Expirydate = $row["Expiry_Date"]
                             
 
                     
@@ -126,6 +127,7 @@
                         <tr>
                             <td><input type="text" name="ItemName" id="ItemName" class="input"  value="<?php echo $ItemName; ?>"></td>
                             <td class="column"><input type="text" name="BatchNo" id="BatchNo" class="input" value="<?php echo $BatchNo; ?>"></td>
+                            <td class="column"><input type="text" name="Expirydate" id="Expirydate" class="input"  value="<?php echo $Expirydate; ?>"></td>
                             <td class="column"><input type="text" name="Quantity" id="Quantity" class="input" value="<?php echo $Quantity; ?>"></td>
                             <td class="column"><input type="text" name="Rate" id="Rate" class="input" value="<?php echo $Rate; ?>"></td>
                             <td class="column"><input type="text" name="Discount" id="Discount" class="input" value="<?php echo $Discount; ?>"></td>

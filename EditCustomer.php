@@ -100,8 +100,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>City Name</th>
-                        <td><input type='text' name='CityName' id='CityName' class='inputs' value='$CityName'>
+                        <th class='column'>City Name</th>
+                        <td class='column'><input type='text' name='CityName' id='CityName' class='inputs' value='$CityName'>
                         </td>
                     </tr>
                     

@@ -85,6 +85,7 @@ $con->close();
                         <tr>
                             <th class="Item">Item Name</th>
                             <th class="column">Batch No.</th>
+                            <th class="column">Expiry Date</th>
                             <th class="column">Quantity</th>
                             <th class="column">Rate</th>
                             <th class="column">Dicount</th>
@@ -114,7 +115,23 @@ $con->close();
                                 ?>
                                 </datalist>
                             </td>
-                            <td class="column"><input type="text" name="BatchNo" id="BatchNo" class="input"></td>
+                            <td class="column"><input type="text" list="Batch" name="BatchNo" id="BatchNo" class="input">
+                                <datalist id="Batch">
+                                <?php
+                                include 'Connect.php';
+
+                                $sql = "SELECT * FROM calculation";
+                                $result = $con->query($sql);
+                                if($result->num_rows > 0){
+                                    while($row= $result->fetch_assoc()){
+                                        $Batch = $row["Batch_No"];
+                                        echo "<option value=".$Batch."></option>";
+                                    }
+                                }
+                                ?>
+                                </datalist>
+                            </td>
+                            <td class="column"><input type="text" name="Expirydate" id="Expirydate" class="input"></td>
                             <td class="column"><input type="text" name="Quantity" id="Quantity" class="input"></td>
                             <td class="column"><input type="text" name="Rate" id="Rate" class="input"></td>
                             <td class="column"><input type="text" name="Discount" id="Discount" class="input"></td>

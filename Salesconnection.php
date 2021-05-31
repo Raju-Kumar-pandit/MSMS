@@ -11,6 +11,7 @@
     $DuesAmount = $_POST["DuesAmount"];
     $ItemName = $_POST["ItemName"];
     $BatchNo = $_POST["BatchNo"];
+    $Expiry = $_POST["Expirydate"];
     $Quantity = $_POST["Quantity"];
     $Rate = $_POST["Rate"];
     $ActualAmt = $_POST["ActualAmt"];
@@ -26,8 +27,8 @@
 
     if($con->query($sql)===TRUE){
 
-        $sql = "INSERT INTO salesItem(Sales_ID,Item_Name,Batch_No,Quantity,Rate,Discount,Actual_Amount,Amount,SGSTRate,SGSTAmount,CGSTRate,CGSTAmount) 
-        VALUES('$SalesId','$ItemName','$BatchNo','$Quantity','$Rate','$Discount','$ActualAmt','$Amount','$SGSTRate','$SGSTAmount','$CGSTRate','$CGSTAmount')";
+        $sql = "INSERT INTO salesItem(Sales_ID,Item_Name,Batch_No,Quantity,Rate,Discount,Actual_Amount,Amount,SGSTRate,SGSTAmount,CGSTRate,CGSTAmount,Expiry_Date) 
+        VALUES('$SalesId','$ItemName','$BatchNo','$Quantity','$Rate','$Discount','$ActualAmt','$Amount','$SGSTRate','$SGSTAmount','$CGSTRate','$CGSTAmount','$Expiry')";
 
         if($con->query($sql)===TRUE){
 

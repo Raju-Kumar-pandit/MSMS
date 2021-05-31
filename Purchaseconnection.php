@@ -20,13 +20,13 @@
     $CGSTAmount = $_POST["CGST"];
     $Amount = $_POST["Amount"];
     $Discount = $_POST["Discount"];
-
+    $Expiry = $_POST["Expirydate"];
 
     $sql = "INSERT INTO purchase(Purchase_ID,Date,Supplier_ID,Mode,Total_Amount,Pay_Amount,Dues_Amount)
     VALUES('$PurchaseId','$Date','$SupplierId','$Mode','$TotalAmount','$PayAmount','$DuesAmount')";
       if($con->query($sql)===TRUE){
-        $sql = "INSERT INTO purchaseItem(Purchase_ID, Item_Name,Batch_No,Quantity,Rate,Amount,Discount,Actual_Amount,SGSTRate,SGSTAmount,CGSTRate,CGSTAmount) 
-        VALUES('$PurchaseId','$ItemName','$BatchNo','$Quantity','$Rate','$Amount','$Discount','$ActualAmt','$SGSTRate','$SGSTAmount','$CGSTRate','$CGSTAmount')";
+        $sql = "INSERT INTO purchaseItem(Purchase_ID, Item_Name,Batch_No,Quantity,Rate,Amount,Discount,Actual_Amount,SGSTRate,SGSTAmount,CGSTRate,CGSTAmount,Expiry_Date) 
+        VALUES('$PurchaseId','$ItemName','$BatchNo','$Quantity','$Rate','$Amount','$Discount','$ActualAmt','$SGSTRate','$SGSTAmount','$CGSTRate','$CGSTAmount','$Expiry')";
     
         if($con->query($sql)===TRUE){
             echo"<script>alert('New data inserted Successfully')</script>";

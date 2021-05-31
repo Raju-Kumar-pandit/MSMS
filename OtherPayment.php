@@ -3,7 +3,7 @@
     include 'Connect.php';
 
     $PaymentId = NULL;
-    $sql ="SELECT Payment_ID FROM payment order by Payment_ID DESC LIMIT 1";
+    $sql ="SELECT Payment_ID FROM otherpayment order by Payment_ID DESC LIMIT 1";
     $result = $con->query($sql);
     if($result->num_rows > 0)
     {
@@ -41,8 +41,8 @@
             <?php include 'Header.php' ?>
         </div>
         <div>
-            <form action="PaymentConnection.php" method="POST" id="SupplierPaymentform">
-                <h1 class="h">Payment form</h1>
+            <form action="OtherPaymentConnect.php" method="POST" id="ledgerPaymentform">
+                <h1 class="h">Other Payment form</h1>
             <table class="table">
                 <tr>
                     <th class="column">Payment ID</th>
@@ -50,36 +50,19 @@
                     <th class="column">Date</th>
                     <td class="column"><input type="text" name="Date" id="Date" class="input" onclick="dates()" readonly></td>
                 </tr>
-                <?php
-                include 'Connect.php';
-                $add=null;
-                if(isset($_POST['SupplierId'])){
-                    $supplierid = $_POST['SupplierId'];
-                    //$add =0;
-                    $sql = "SELECT * FROM purchase  WHERE Supplier_ID='$supplierid'";    
-                        $result = $con->query($sql);
-                        if($result->num_rows > 0){
-                            while($row= $result->fetch_assoc()){;
-                               $DuesAmount = $row["Dues_Amount"];
-                               $SupplierId = $row["Supplier_ID"];
-                                $add = $add + $DuesAmount;
-                            }
-                        }
-                }
-                ?>
                 <tr>
-                    <th class="column">Supplier ID</th>
-                    <td class="column"><input type="text" list="Ids" name="SupplierId" id="SupplierId" class="input" onchange="document.getElementById('SupplierPaymentform').submit()" value="<?php echo $SupplierId?>">
+                    <th class="column">Ledger ID</th>
+                    <td class="column"><input type="text" list="Ids" name="LedgerId" id="LedgerId" class="input" onchange="document.getElementById('OtherPaymentform').submit()">
                     <datalist id="Ids">
                     <?php
                     include 'Connect.php';
 
-                        $sql = "SELECT * FROM supplier";
+                        $sql = "SELECT * FROM ledger";
                         $result = $con->query($sql);
                         if($result->num_rows > 0){
                             while($row= $result->fetch_array()){
-                                $SupplierId = $row["Supplier_ID"];
-                                echo "<option value=".$SupplierId."></option>";
+                                $LedgerId = $row["Ledger_ID"];
+                                echo "<option value=".$LedgerId."></option>";
                             }
                         }
                     ?>
@@ -97,7 +80,7 @@
             <table class="table">
                 <tr>
                     <th class="column">Dues Amount</th>
-                    <td><input type="text" list="ids" name="DuesAmount" id="DuesAmount" class="inputamount" value="<?php echo $add; ?>" required></td>
+                    <td><input type="text" list="ids" name="DuesAmount" id="DuesAmount" class="inputamount"  required></td>
                 </tr>
                 <tr>
                     <th class="column">Pay Amount</th>

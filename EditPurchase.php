@@ -98,12 +98,13 @@
                                 $CGSTRate = $row["CGSTRate"];
                                 $CGSTAmount = $row["CGSTAmount"];
                                 $Amount = $row["Amount"];
-
+                                $Expirydate = $row["Expiry_Date"];
                         ?>
                     <table class="table">
                         <tr>
                             <th class="Item">Item Name</th>
                             <th class="column">Batch No.</th>
+                            <th class="column">Expiry Date</th>
                             <th class="column">Quantity</th>
                             <th class="column">Rate</th>
                             <th class="column">Dicount</th>
@@ -119,6 +120,7 @@
                         <tr>
                             <td><input type="text" name="ItemName" id="ItemName" class="input" value="<?php echo $ItemName; ?>"></td>
                             <td class="column"><input type="text" name="BatchNo" id="BatchNo" class="input" value="<?php echo $BatchNo; ?>"></td>
+                            <td class="column"><input type="text" name="Expirydate" id="Expirydate" class="input" value="<?php echo $Expirydate; ?>"></td>
                             <td class="column"><input type="text" name="Quantity" id="Quantity" class="input" value="<?php echo $Quantity; ?>"></td>
                             <td class="column"><input type="text" name="Rate" id="Rate" class="input" value="<?php echo $Rate; ?>"></td>
                             <td class="column"><input type="text" name="Discount" id="Discount" class="input" value="<?php echo $Discount; ?>"></td>

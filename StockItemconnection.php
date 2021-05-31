@@ -11,12 +11,14 @@
     $Quantity = $_POST["Quantity"];
     $Rate = $_POST["Rate"];
     $Amount = $_POST["Amount"];
-    $StandardRate = $_POST["StandardRate"];
     $GSTRate = $_POST["GSTRate"];
     $SaleRate = $_POST["SaleRate"];
+    
+    $Mfgdate = $_POST["Mfgdate"];
+    $Expirydate = $_POST["Expirydate"];
 
-    $sql = "INSERT INTO stockItem(Date, Item_ID, Item_Name, Unit, Under, Quantity, Rate, Amount, Standard_Rate, GST_Rate, Sale_Rate)
-     VALUES ('$Date','$ItemId','$ItemName','$Unit','$Under','$Quantity','$Rate','$Amount','$StandardRate','$GSTRate','$SaleRate')";
+    $sql = "INSERT INTO stockItem(Date, Item_ID, Item_Name, Unit, Under, Quantity, Rate, Amount, GST_Rate, Sale_Rate, Mfg_Date, Expiry_Date)
+     VALUES ('$Date','$ItemId','$ItemName','$Unit','$Under','$Quantity','$Rate','$Amount','$GSTRate','$SaleRate','$Mfgdate','$Expirydate')";
    
 
     if($con->query($sql)===TRUE)

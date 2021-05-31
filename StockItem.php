@@ -74,16 +74,8 @@
                                 }
                             ?>
                             </datalist>
+                            <button id="myBtn" class="inputs" type="button">Create</button> 
                         </td>
-                    </tr>
-                
-                    <tr>
-                    <th class="column">Create New Under</th>
-                    <td class="column">
-                        <button id="myBtn" class="inputs" type="button">Create</button>
-
-                        
-                    </td>
                     </tr>
                     <tr>
                         <th class="column">Unit</th>
@@ -101,11 +93,13 @@
                                     }
                                 ?>
                             </datalist>
+                            <button id="myBtn1" class="inputs" type="button">Create</button>
                         </td>
                     </tr>
                     <tr>
-                        <th class="column">Standard Rate</th>
-                        <td class="column"><input type="text" name="StandardRate" id="StandardRate" class="inputs" required></td>
+                        <th class="column">Alternate Unit</th>
+                        <td class="column">Yes<input type='radio' name="Units" id="Units" required>
+                        No<input type='radio' name="Units" id="Units" required></td>
                     </tr>
                     <tr>
                         <th class="column"> GST Rate %</th>
@@ -121,19 +115,21 @@
                     </tr>
                 </table>
                 <table class="table">
-                    <caption class="Item">Opening Amount</caption>
+                    
                     <tr>
+                        <th class="column" rowspan="2">Opening Amount</th>
                         <th class="column">Quantity</th>
-                        <td class="column"><input type="text" name="Quantity" id="Quantity" class="inputs"></td>
+                        <th class="column">per</th>
+                        <th class="column">Rate</th>
+                        <th class="column">Amount</th>
                     </tr>
                     <tr>               
-                        <th class="column">Rate</th>
-                        <td class="column"><input type="text" name="Rate" id="Rate" class="inputs"></td>
-                    </tr>
-                    <tr>
-                        <th class="column">Amount</th>
-                        <td class="column"><input type="text" name="Amount" id="Amount" class="inputs" onclick="amount()" readonly></td>
-                        
+                        <td class="column"><input type="text" name="Quantity" id="Quantity" class="input"></td>
+                        <td class="column"><input type="text" name="Per" id="Per" class="input"></td>
+                        <td class="column"><input type="text" name="Rate" id="Rate" class="input"></td>
+                        <td class="column"><input type="text" name="Amount" id="Amount" class="input"></td>
+                        <td class="column"><input type="hidden" name="Mfgdate" id="Mfgdate" class="input"></td>
+                        <td class="column"><input type="hidden" name="Expirydate" id="Expirydate" class="input"></td>
                     </tr>
                 </table>
                 <table class="table">
@@ -152,7 +148,7 @@
                     <form action="CreateUnder.php" method="POST">
                         <table class="table">
                             <tr>
-                                <th class="column">Name</th>
+                                <th class="column">Under Name</th>
                                 <td class="column"><input type="text" name="Name" id="Name" class="input"></td>
                             </tr>
                         </table>
@@ -162,6 +158,73 @@
                             </tr>
                         </table>
                     </form>
+                </div>
+            </div> 
+            </div>
+
+            <!-- The Modal unit -->
+            <div id="myModals1" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div>
+                    <form action="Unitconnect.php" method="POST">
+                        <table class="table">
+                            <tr>
+                                <th class="column">Short Name of Unit</th>
+                                <td class="column"><input type="text" name="Name" id="Name" class="input"></td>
+                            </tr>
+                            <tr>
+                                <th class="column">Full Name of Unit</th>
+                                <td class="column"><input type="text" name="UnitName" id="UnitName" class="input"></td>
+                            </tr>
+                        </table>
+                        <table class="table">
+                            <tr>
+                                <td class="column"><input type="submit" value="Submit" name="Submit" class="button"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div> 
+            </div>
+
+            <!-- The Modal2 opening Amount -->
+            <div id="myModals" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div>
+                
+                        <table class="table">
+                            <tr>
+                                <th class="column">Batch</th>
+                                <th class="column">Mfg Dt.</th>
+                                <th class="column">Expiry Dt</th>
+                                <th class="column">Quantity</th>
+                                <th class="column">Rate</th>
+                                <th class="column">per</th>
+                                <th class="column">Amount</th>
+                                
+                            </tr>
+                            <tr>
+                                <td class="column"><input type="text" name="Batch" id="Batch" class="input"></td>
+                                <td class="column"><input type="date" name="Mfgdates" id="Mfgdates" class="input"></td>
+                                <td class="column"><input type="date" name="Expirydates" id="Expirydates" class="input"></td>
+                                <td class="column"><input type="text" name="Quantities" id="Quantities" class="input"></td>
+                                <td class="column"><input type="text" name="Rates" id="Rates" class="input"></td>
+                                <td class="column"><input type="text" name="Pers" id="Pers" class="input" ></td>
+                                <td class="column"><input type="text" name="Amounts" id="Amounts" class="input" onclick="amount()"></td>
+                            </tr>
+                        </table>
+                        <table class="table">
+                            <tr>
+                                <td class="column"><input type="button" id="closes" value="Close" class="close" onclick="get()"></td>
+                            </tr>
+                        </table>
+                    
                 </div>
             </div> 
             </div>
@@ -179,7 +242,7 @@
             // Get the <span> element that closes the modal
             var span = document.getElementsByClassName("close")[0];
 
-            // When the user clicks on the button, open the modal
+            // When the user clicks the button, open the modal 
             btn.onclick = function() {
             modal.style.display = "block";
             }
@@ -196,6 +259,65 @@
             }
             }
 
+            // Get the modal
+            var modals = document.getElementById("myModals");
+
+            // Get the button that opens the modal
+            var btns = document.getElementById("Quantity");
+
+            // Get the <span> element that closes the modal
+            var spans = document.getElementsByClassName("close")[2];
+           
+            // Get the <span> element that closes the modal
+            var close = document.getElementsByClassName("closes")[3];
+
+            // When the user clicks the button, open the modal 
+            btns.onclick = function() {
+            modals.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            spans.onclick = function() {
+            modals.style.display = "none";
+            }
+
+            // When the user clicks on close nutton close the modal
+            close.onclick = function() {
+            modals.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+            if (event.target == modals) {
+                modals.style.display = "none";
+            }
+            }
+
+            // Get the modal
+            var modals1 = document.getElementById("myModals1");
+
+            // Get the button that opens the modal
+            var btns1 = document.getElementById("myBtn1");
+
+            // Get the <span> element that closes the modal
+            var spans1 = document.getElementsByClassName("close")[1];
+
+            // When the user clicks the button, open the modal 
+            btns1.onclick = function() {
+            modals1.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            spans1.onclick = function() {
+            modals1.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+            if (event.target == modals1) {
+                modals1.style.display = "none";
+            }
+            }
 
             function dates() {
 			var today = new Date();
@@ -209,14 +331,30 @@
 			}
 
             function amount() {
+            var a=Number(document.getElementById('Quantities').value);
+            var b=Number(document.getElementById('Rates').value);
             
-            var a=Number(document.getElementById('Quantity').value);
-            var b=Number(document.getElementById('Rate').value);
             c=a*b;
-            document.getElementById('Amount').value=c;
-            document.getElementById('TotalAmount').value=c;
+            document.getElementById('Amounts').value=c;
+            }
+
+            function get(){
+            var a=Number(document.getElementById("Quantities").value);
+            var b=String(document.getElementById("Pers").value);
+            var c=Number(document.getElementById("Rates").value);
+            var d=Number(document.getElementById("Amounts").value);
+            var e=String(document.getElementById("Mfgdates").value);
+            var f=String(document.getElementById("Expirydates").value);
+            document.getElementById("Quantity").value=a;
+            document.getElementById("Per").value=b;
+            document.getElementById("Rate").value=c;
+            document.getElementById("Amount").value=d;
+            document.getElementById("Mfgdate").value=e;
+            document.getElementById("Expirydate").value=f;
             }
             
         </script>
     </body>
 </html>
+
+

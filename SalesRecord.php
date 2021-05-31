@@ -42,10 +42,6 @@
                     echo "<td>".$row["Total_Amount"]."</td>";
                     echo "<td>".$row["Pay_Amount"]."</td>";
                     echo "<td>".$row["Dues_Amount"]."</td>";
-                    
-                    
-                    
-            
             ?>
                 <td><button class="input"><a href='DeleteSales.php?id=<?php echo $row['Sales_ID']; ?>'>Delete</a></button></td>
                 <td><button class="input"><a href='SearchSales.php?id=<?php echo $row['Sales_ID']; ?>'>Next </a></button></td>

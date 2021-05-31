@@ -9,22 +9,33 @@
     $BatchNo = $_POST["BatchNo"];
     $Quantity = $_POST["Quantity"];
     $Rate = $_POST["Rate"];
-    $InputGST = $_POST["InputGST"];
     $Discount = $_POST["Discount"];
+    $ActualAmt = $_POST["ActualAmt"];
+    $SGSTP  = $_POST["SGSTP"];
+    $SGST  = $_POST["SGST"];
+    $CGSTP  = $_POST["CGSTP"];
+    $CGST  = $_POST["CGST"];
     $Amount = $_POST["Amount"];
     $TotalAmount = $_POST["TotalAmount"];
     $DuesAmount = $_POST["DuesAmount"];
-    $CurrentDues =$_POST["CurrentDuesAmount"]
+    $Expiry = $_POST["Expirydate"];
 
-    $sql = "INSERT INTO returnsItem(Return_ID,Date,Supplier_ID,Mode,Total_Amount,Dues_Amount,Current_Dues_Amount) 
-    VALUES('$ReturnId','$Date','$SupplierId','$TotalAmount','$DuesAmount','$CurrentDues')";
+    $sql = "INSERT INTO returnsItem(Return_ID,Date,Supplier_ID,Mode,Total_Amount,Dues_Amount) 
+    VALUES('$ReturnId','$Date','$SupplierId','$Mode','$TotalAmount','$DuesAmount')";
 
-    $sql = "INSERT INTO returnItems(Item_Name,Batch_No,Quantity,Rate,Input_GST,Discount,Amount) 
-    VALUES('$ItemName','$BatchNo','$Quantity','$Rate','$InputGST','$Discount','$Amount')";
     
-    if($con->multi_query($sql)===TRUE)
+    
+    if($con->query($sql)===TRUE)
     {
-        echo "New data inserted successfully";
+        $sql = "INSERT INTO returnItems(Return_ID,Item_Name,Batch_No,Quantity,Rate,Discount,Amount,Actual_Amount,SGSTRate,SGSTAmount,CGSTRate,CGSTAmount,Expiry_Date) 
+            VALUES('$ReturnId','$ItemName','$BatchNo','$Quantity','$Rate','$Discount','$Amount','$ActualAmt','$SGSTP','$SGST','$CGSTP','$CGST','$Expiry')";
+        if($con->query($sql)===TRUE){
+            echo "<script>alert('New data inserted successfully')</script>";
+            echo "<script>window.location.href='ReturnItem.php'</script>";
+        } else {
+            
+            echo $con->error;
+        }
     }
     else
     {

@@ -182,13 +182,26 @@
                         </li>
                     </ul>
                 </li>
+                <li>OtherPayment
+                    <ul>
+                        <li>
+                            <a href="OtherPayment.php">New Pament</a>
+                        </li>
+                        <li>
+                            <a href="EditOtherPayment.php">Edit Payment</a>
+                        </li>
+                        <li>
+                            <a href="OtherPaymentRecord.php">display</a>
+                        </li>
+                    </ul>
+                </li>
                 <li>Return
                     <ul>
                         <li>
                             <a href="ReturnItem.php">New Return Item</a>
                         </li>
                         <li>
-                            <a href="#">Edit Return Item</a>
+                            <a href="EditReturnItem.php">Edit Return Item</a>
                         </li>
                         <li>
                             <a href="ReturnRecord.php">display</a>
@@ -218,16 +231,16 @@
                 <li>Reports
                     <ul>
                         <li>
-                            <a href="#">Stock Report</a>
+                            <a href="#">Balance Sheet</a>
                         </li>
                         <li>
-                            <a href="#">Sales Report</a>
+                            <a href="DayBook.php">Day Book</a>
                         </li>
                         <li>
-                            <a href="#">Purchase Report</a>
+                            <a href="#">Profit & lose</a>
                         </li>
                         <li>
-                            <a href="#">Summary Report</a>
+                            <a href="StockSummary.php">Stock Summary</a>
                         </li>
                     </ul>
                 </li>
