@@ -112,7 +112,7 @@
   <h1 class="text-center">All Classes</h1>
 </div>
 <div class="container-fluid">
-  <div class="container bg-primary">
+  <div class="container bg-primary text-center">
     <div class="col-sm-3" >C</div>
     <div class="container bg-primary">
     <div class="col-sm-3" >C++</div>
@@ -121,6 +121,9 @@
     <div class="container bg-primary">
     <div class="col-sm-3" >Html</div>
   </div>
+</div>
+<div class="container success">
+  <div class="col-sm-3" >Html</div>
 </div>
 
 </body>
