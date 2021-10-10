@@ -6,71 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashbord</title>
     <style>
-        .div1 {
+        .div1{
             width: 100%;
-            float: left;
-            background-color:red;
+            height: 50px;
+            background: gray;
             text-align: center;
-            margin: 1px;
-            font-size:20px;
+            box-sizing: border-box;
+            line-height: 50px;
         }
-        .div2 {
-            width: 100%;
-            float: left;
-            background-color:red;
-            text-align: center;
-            margin: 1px;
+        .div2{
+            background:lightgray;
+        }
+        .div2 li{
+            display:inline-block;
+        }
+        .div2 li a{
+            display: block;
+            padding:10px 13px;
+            text-decoration:none;
             font-size: 20px;
+            background:white;
+            border-radius:10px;
         }
-        .div3 {
-            width: 25%;
-            float: left;
-            background-color:red;
-            text-align: center;
-    
+        .div2 ul{
+            margin: 0px;
+            padding: 0px;
         }
-        .div3h {
-            width: 25%;
-            background-color:red;
-            text-align: center;
-            margin: 1px;
-            font-size: 20px;
+        .div2 a:hover{
+            background:green;
+            border-radius:10px;
+            color:white;
         }
-        .div4 {
-            width: 74%;
-            float: left;
-            background-color:red;
-            text-align: center;
-            margin: 1px;
-            font-size:20px;
-        }
-        .div5 {
+        .div5{
             width: 100%;
-            float: left;
-            background-color:red;
-            text-align: center;
-            margin: 1px;
-            font-size:20px;
+            height: 50px;
+            background: gray;
+            margin: 5px;
+            padding:10px;
+            text-align:center;
+            box-sizing: border-box;
+            clear:both;
+        }
+        .div4{
+            width:1282px;
+            border: 1px solid blue;
+            float:right;
+            min-height: 500px;
+            padding:10px;
+            box-sizing:border-box;
+        }
+        .div6{
+            width:200px;
+            float:left;
+            box-sizing:border-box;
+            background:lightgray;
+            min-height: 500px;
+            border: 1px solid black;
+            padding:10px;
         }
     </style>
 </head>
 <body>
     <div class="grid_container">
         <div class="div1">Header</div>
-        <div class="div2">menu</div>
-        <div class="div3">
-            <div class="div3h">Admin</div>
-            <div class="div3h">Staff</div>
-            <div class="div3h">Stock</div>
-            <div class="div3h">Sales</div>
-            <div class="div3h">Purchase</div>
+        <div class="div2">
+            <ul>
+                <li><a href="#">Dashbord</a></li>
+                <li><a href="#">Company</a></li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">Staff</a></li>
+                <li><a href="#">Customer</a></li>
+                <li>
+                <form action="" method="post">
+                <input type="search" name="search" id="search" placeholder="Search">
+                <input type="button" value="Search">
+            </form>
+                </li>
+            </ul>
+
         </div>
-        <div class="div4">Main
-            <div>
-                <p>Welcom to wisite my website</p>
-                <p>Welcom to wisite my website</p>
-            </div>
+        <div class="div6">
+            <ul>
+                <li><a href="#">Dashbord</a></li>
+                <li><a href="#">Company</a></li>
+                <li><a href="#">Admin</a></li>
+                <li><a href="#">Staff</a></li>
+                <li><a href="#">Customer</a></li>
+            </ul>
         </div>
+        <div class="div4">
+            <?php
+            include 'Staff.php';
+            ?>
+        </div>
+
         <div class="div5">Footer</div>
     </div>
 </body>

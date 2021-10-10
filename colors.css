@@ -78,7 +78,7 @@ ul{
 ul li{
     float: left;
     font-size: 20px;
-    width: 6%;
+    width: 10%;
     line-height: 50px;
     text-align: center;
 }
@@ -107,21 +107,26 @@ ul li:hover > ul{
 }
 /*-------Dasboard chart------*/
 .div12 {
-    background : rgb(115, 218, 120);
-    width:10%;
+    background : rgb(232, 240, 232);
+    width:15%;
     margin:2px;
     border-radius:10px;
-
+    float: left;
 }
 .div10 {
-    background : rgb(209, 61, 142);
-    width:10%;
+    background : rgb(229, 236, 232);
+    width:15%;
     margin:2px;
     border-radius:10px;
     float: left;
 }
 .p1{
     text-align: center;
+}
+.div11{
+    background-color: aliceblue;
+    height: 400px;
+    width: 1500px;
 }
 /*------footer Part css-------------*/
 .footer{
@@ -174,7 +179,6 @@ ul li:hover > ul{
     height: 5%;
     font-size: 20px;
 }
-
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */

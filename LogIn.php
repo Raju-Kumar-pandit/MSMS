@@ -15,11 +15,11 @@
         <form action="LogInconnection.php" method="POST" class="lform">
             <fieldset class="lfieldset">
                 <legend>Log In</legend>
-                <label for="emailId">Email ID</label><br><br>
+                <label for="emailId">Email ID</label><br>
                 <input type="email" name="emailId" id="emailId"  class="linput"><br><br>
-                <label for="password">Password</label><br><br>
+                <label for="password">Password</label><br>
                 <input type="password" name="password" id="password" class="linput"><br><br>
-                <input type="submit" value="Log In" class="linput">
+                <input type="submit" value="LogIn" class="linput">
             </fieldset>
         </form>
     </body>

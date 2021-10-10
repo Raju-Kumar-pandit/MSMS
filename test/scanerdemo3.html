@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+    <script type="text/javascript" src="instascan.min.js"></script>
+    <title>Document</title>
+    <style>
+        #preview{
+            border: 5px solid salmon;
+            border-radius: 50%;
+            width: 50%;
+            padding: 5px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <video id="preview"></video>
+
+    <script type="text/javascript">
+        let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+        scanner.addListener('scan', function (content) {
+            alert("camera access: " + content);
+            window.open(content,"_blank");
+        });
+        Instascan.Camera.getCameras().then(cameras =>{
+            
+                if(cameras.length>0){
+                    scanner.start(cameras[0]);
+                } else {
+                    console.error("No Front camera found!" + content);
+                }
+            
+        });
+      </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            
+            background: gray;
+        }
+        .container{
+            margin: 0px auto;
+            width: 500px;
+            height: 375px;
+            border: 2px solid #fff;
+        }
+        #videoElement{
+
+            width: 500px;
+            height: 375px;
+            background-color: #666;
+        }
+        </style>
+</head>
+<body>
+    <p>Raju kumar</p>
+   <!-- <script>
+        const constraints = {
+            'video':true, 'audio':false
+        }
+        navigator.mediaDevices.getUserMedia(constraints)
+        .then(stream =>{
+            console.log("Got MediaStram:",stream);
+        })
+        .catch(error =>{
+            console.log("Error accessing media devices.",error);
+        });
+    </script>-->
+    <div class="container">
+        <video type="video/mp4" id="videoElement" poster="image/images (9).jpg" controls></video>
+        <button onclick="playvideo()">play/pause</button>
+    </div>
+    <script>
+        var imageCapture;
+
+        navigator.mediaDevices.getUserMedia({video: true})
+        .then(mediaStream => {
+        document.querySelector('video').srcObject = mediaStream;
+
+        const track = mediaStream.getVideoTracks();
+        imageCapture = new ImageCapture(track);
+        
+        return imageCapture.getPhotoCapabilities();
+        })
+        var myvideo=document.getElementById("videoElement");
+        function playvideo(){
+            if(myvideo.poused){
+                myvideo.play();
+            } 
+            else 
+            {
+                myvideo.pause();
+            }
+        }
+    </script>
+</body>
+</html>

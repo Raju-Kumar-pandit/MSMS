@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid layout</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            text-align: center;
+            padding: 0;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 80vw;
+            background: #eee;
+            margin: 50px auto;
+            padding: 100px;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: 200px 200px 200px;
+            grid-gap: 10px;
+        }
+        .box1{
+            background: orangered;
+            padding: 100px 0;
+            color: azure;
+        }
+        .box2{
+            color: azure;
+            padding: 100px 0;
+            background: yellowgreen;
+        }
+        .box3{
+            color: azure;
+            padding: 100px 0;
+            background: slateblue;
+        }
+        .box4{
+            color: azure;
+            padding: 100px 0;
+            background: hotpink;
+        }
+        .box5{
+            color: azure;
+            padding: 100px 0;
+            background: royalblue;
+        }
+        .box6{
+            color: azure;
+            padding: 100px 0;
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>Grid layout</h1>
+    <div class="container">
+        <div class="box1">first</div>
+        <div class="box2">second</div>
+        <div class="box3">third</div>
+        <div class="box4">four</div>
+        <div class="box5">five</div>
+        <div class="box6">six</div>
+    </div>
+</body>
+</html>

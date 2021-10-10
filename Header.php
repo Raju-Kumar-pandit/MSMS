@@ -36,7 +36,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>Company
+                <li>Company Admin
                     <ul>
                         <li>
                             <a href="EditCompany.php">EditCompany</a>
@@ -44,10 +44,6 @@
                         <li>
                             <a href="CompanyRecord.php">display</a>
                         </li>
-                    </ul>
-                </li>
-                <li>Admin
-                    <ul>
                         <li>
                             <a href="Admin.php">New Admin</a>
                         </li>
@@ -98,7 +94,7 @@
                         </li>
                     </ul>
                 </li>
-                <li> Customer
+                <li> CustomerSales
                     <ul>
                         <li>
                             <a href="Customer.php">New Customer</a>
@@ -109,10 +105,6 @@
                         <li>
                             <a href="CustomerRecord.php">display</a>
                         </li>
-                    </ul>
-                </li>
-                <li>Sales
-                    <ul>
                         <li>
                             <a href="Sales.php">New Sales Item</a>
                         </li>
@@ -122,9 +114,18 @@
                         <li>
                             <a href="SalesRecord.php">display</a>
                         </li>
+                        <li>
+                            <a href="ReceivePayment.php">New Receive Payment</a>
+                        </li>
+                        <li>
+                            <a href="EditReceivePayment.php">Edit Receive Payment</a>
+                        </li>
+                        <li>
+                            <a href="ReceivePaymentRecord.php">display</a>
+                        </li>
                     </ul>
                 </li>
-                <li>Supplier
+                <li>SupplierPurchase
                     <ul>
                         <li>
                             <a href="Supplier.php">New Supplier</a>
@@ -135,10 +136,6 @@
                         <li>
                             <a href="SupplierRecord.php">display</a>
                         </li>
-                    </ul>
-                </li>
-                <li>Purchase
-                    <ul>
                         <li>
                             <a href="Purchase.php">New Purchase</a>
                         </li>
@@ -154,25 +151,8 @@
                         <li>
                             <a href="PurchaseRecord.php">display</a>
                         </li>
-                    </ul>
-                </li>
-                <li>Receive 
-                    <ul>
                         <li>
-                            <a href="ReceivePayment.php">New Receive Payment</a>
-                        </li>
-                        <li>
-                            <a href="EditReceivePayment.php">Edit Receive Payment</a>
-                        </li>
-                        <li>
-                            <a href="ReceivePaymentRecord.php">display</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>Payment
-                    <ul>
-                        <li>
-                            <a href="Payment.php">New Pament</a>
+                            <a href="Payment.php">New Payment</a>
                         </li>
                         <li>
                             <a href="EditPayment.php">Edit Payment</a>
@@ -185,7 +165,7 @@
                 <li>OtherPayment
                     <ul>
                         <li>
-                            <a href="OtherPayment.php">New Pament</a>
+                            <a href="OtherPayment.php">New Payment</a>
                         </li>
                         <li>
                             <a href="EditOtherPayment.php">Edit Payment</a>
@@ -195,6 +175,7 @@
                         </li>
                     </ul>
                 </li>
+                
                 <li>Return
                     <ul>
                         <li>

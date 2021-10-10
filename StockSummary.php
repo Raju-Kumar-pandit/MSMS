@@ -51,23 +51,6 @@
                 <tr class="th">
                     <th class="rows"> Total Quantity</th>
                 </tr>
-        
-                <?php
-                    include 'Connect.php';
-                    $sql = "SELECT((SELECT SUM(Quantity) FROM stockitem) + (SELECT SUM(Quantity) FROM purchaseitem)) - (SELECT SUM(Quantity) FROM salesitem) AS Quantity";
-                        $result = $con->query($sql);
-                        if($result->num_rows > 0)
-                        {
-                            while($row= $result->fetch_array()){
-                            
-                                $quantity=$row['Quantity'];
-                            }
-                            echo"
-                                <tr class='thtd'>
-                                <td>$quantity</td>";
-                            echo "</tr>";
-                        }
-                ?>
                 
             </table>
             <h1 class="h">Short list Item Order by Expiry date</h1>

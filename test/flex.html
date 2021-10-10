@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            text-align: center;
+            padding: 50px 0;
+        }
+        p{
+            text-align: center;
+        }
+        .container{
+            width: 100vw;
+            height: 100vh;
+            background: lightpink;
+        }
+        .container-box{
+            width: 80vw;
+            height: auto;
+            margin: auto;
+            background: lightgreen;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            transition: all 0.2s linear;
+        }
+        .box{
+            background-color: aqua;
+            border: 2px solid red;
+            width: 200px;
+            height: 200px;
+            flex: 1 1;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Name</h1>
+        <div class="container-box">
+            <div class="box">
+                <p>Raju</p>
+            </div>
+            <div class="box">
+                <p>Raju</p>
+            </div>
+            <div class="box">
+                <p>Raju</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

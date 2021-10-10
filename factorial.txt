@@ -1,0 +1,17 @@
+	winding and unwinding	-	
+	tail recursion	-	
+
+
+	int factorial(int n)
+	{
+		//base condition
+		if(n<=1)
+			return 1;
+		//recursive call
+		//f = n * factorial(n-1);	//winding statement
+		//return f;			//unwinding statement
+		
+	}
+
+
+	

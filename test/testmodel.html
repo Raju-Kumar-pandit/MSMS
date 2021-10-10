@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop up model</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background: #fff;
+            font-family: arial;
+        }
+        h1{
+            text-align: center;
+        }
+        .container{
+            width: 100%;
+            margin: 0 auto;
+        }
+        .model-container .toggle-btn{
+            display: block;
+            color: #fff;
+            background: #e74c3c;
+            width: 150px;
+            height: 50px;
+            font-size: 22px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .model-container .model-btn:hover{
+            background: #c0392b;
+        }
+        #model-toggle{
+            display: none;
+        }
+        .model-container .model-back, .model-container .model-content{
+            height: 0;
+            width: 0;
+            opacity: 0;
+            visibility: hidden;
+            cursor: pointer;
+        }
+        .model-container #model-toggle:checked ~ .model-back{
+            background: rgba(0,0,0,0.6);
+            width: 100vw;
+            height: 100vw;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            visibility: visible;
+            opacity: 1;
+        }
+        .model-content .model-close{
+            color: #aaa;
+            width: 50px;
+            height: 25px;
+            font-size: 50px;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
+        .model-container #model-toggle:checked ~ .model-content{
+            background: #fff;
+            width: 95%;
+            height: 550px;
+            padding: 5px 30px;
+            position: fixed;
+            border-radius: 5px;
+            margin: 5px 10px;
+            cursor: auto;
+            z-index: 1000;
+            visibility: visible;
+            opacity: 1;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="model-container">
+            <input type="checkbox" name="" id="model-toggle">
+            <label for="model-toggle" class="toggle-btn" onclick="hidde()">click</label>
+            <div class="model-back" id="toggle"></div>
+            <div class="model-content" id="toggles">
+                <label for="model-toggle" class="model-close">&times;</label>
+                <h2>Raju Kumar</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium, similique!</p>
+            </div>
+        </div>
+
+        <h1>Pop Up Model</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium et consequatur laboriosam culpa eius. Quasi earum architecto quaerat facere ex iure vel, consectetur voluptate recusandae quas consequuntur tempora ipsum labore.</p>
+    </div>
+    <script>
+       /* function hiddenmodel()
+        {
+            //var modal = document.querySelector('.model-back');
+            var modal = document.getElementsByClassName("model-back")[0];
+            modal.style.display="none";
+            var color = document.getElementById('toggles');
+            color.style.display="none";
+        }
+        setTimeout("hiddenmodel()", 7000);
+
+        function hidde()
+        {
+
+            model=document.getElementById('toggle');
+            model.style.display="block";
+            var color = document.getElementById('toggles');
+            color.style.display="block";
+        }*/
+        var modal;
+        function hidde(){
+            setTimeout(() =>{
+                document.getElementsByClassName("model-back")[0].style.display="none";
+                document.getElementById('toggles').style.display="none";
+            }
+            ,2000);
+            
+        }
+    </script>
+</body>
+</html>

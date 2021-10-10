@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>flex2 test</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        text-transform: capitalize;
+        transition: .2s linear;
+        font-family: sans-serif;
+    }
+    .container{
+        width: 100vw;
+        height: auto;
+        background: linear-gradient(45deg, blueviolet, lightgreen);
+        padding: 15px 9%;
+    }
+    .container .heading{
+        text-align: center;
+        color: #fff;
+        padding-bottom: 15px;
+        text-shadow: 0 5px 30px rgba(0,0,0,.5);
+        font-size: 50px;
+    }
+    .container .container-box{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+        gap: 15px;
+    }
+    .container .container-box .box{
+        background: #fff;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0,5px 30px rgba(0,0,0,.5);
+        padding: 30px 20px;
+    }
+    .container .container-box .box img{
+        height: 200px;
+        width: 220px;
+        border-radius: 5px;
+    }
+    .container .container-box .box h3{
+        color: #444;
+        font-size: 22px;
+        padding: 10px 0;
+    }
+    .container .container-box .box p{
+        color: #777;
+        font-size: 15px;
+        line-height: 1.8;
+    }
+    .container .container-box .box .bten{
+        background: #333;
+        display: inline-block;
+        color: #fff;
+        margin-top:10px;
+        font-size: 17px;
+        padding: 8px 25px;
+        border-radius: 5px;
+    }
+    .container .container-box .box .bten:hover{
+        letter-spacing: 1px;
+    }
+    .container .container-box .box:hover{
+        box-shadow: 0 10px 15px rgba(0,0,0,.3);
+        transform: scale(1.03);
+    }
+    
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Our doctors</h1>
+        <div class="container-box">
+            <div class="box">
+                <img src="image/download (3).jpg" alt="">
+                <h3>hospital</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, sunt!</p>
+                <a href="#" class="bten">read more</a>
+            </div>
+            <div class="box">
+                <img src="image/download (3).jpg" alt="">
+                <h3>hospital</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, sunt!</p>
+                <a href="#" class="bten">read more</a>
+            </div>
+            <div class="box">
+                <img src="image/download (3).jpg" alt="">
+                <h3>hospital</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, sunt!</p>
+                <a href="#" class="bten">read more</a>
+            </div>
+            <div class="box">
+                <img src="image/download (3).jpg" alt="">
+                <h3>hospital</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, sunt!</p>
+                <a href="#" class="bten">read more</a>
+            </div>
+            <div class="box">
+                <img src="image/download (3).jpg" alt="">
+                <h3>hospital</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, sunt!</p>
+                <a href="#" class="bten">read more</a>
+            </div>
+            <div class="box">
+                <img src="image/download (3).jpg" alt="">
+                <h3>hospital</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, sunt!</p>
+                <a href="#" class="bten">read more</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -4,11 +4,10 @@
 <?php
     include 'Connect.php';
 
-    $userName =$_POST["UserName"];
     $emailId = $_POST["emailId"];
     $pass = $_POST["password"];
-
-    $sql = "INSERT INTO userAccount (UserName,Email_ID,Password) VALUES ('$userName','$emailId','$pass')";
+    $roll = $_POST["roll"];
+    $sql = "INSERT INTO userAccount (Email_ID,Password,Roll) VALUES ('$emailId','$pass','$roll')";
 
 
     if($con->query($sql)===TRUE){
@@ -16,7 +15,5 @@
     } else {
         echo $con->error;
     }
-
-
 
 ?>

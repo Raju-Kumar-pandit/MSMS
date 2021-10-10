@@ -106,7 +106,7 @@
   <div class="card bg-primary">
     <div class="card-body text-center">
       <h1 class="card-text">Realme</h1>
-      
+      <img src="image/shirt.jpg" alt="">
     </div>
   </div>
   <div class="card bg-warning">
@@ -162,7 +162,7 @@
 <div class="container">
   <h2>Thumbnail</h2>
   <p>The .img-thumbnail class creates a thumbnail of the image:</p>            
-  <img src="cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"> 
+  <img src="image/shirt.jpg" class="img-thumbnail" alt="" width="304" height="236"> 
 </div>
 </body>
 </html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gride</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: aqua;
+        }
+        .divs{
+            width: 100%;
+            margin: auto;
+            background-color: aliceblue;
+            border: 2px solid black;
+            display: grid;
+            grid-template-rows: 100px 150px 300px 100px;
+            grid-template-columns: repeat(3, 1fr) 100px;
+            grid-gap: 5px;
+        }
+        .div1{
+            background-color: blue;
+            grid-column: 1/-1;
+        }
+        .div2{
+            background-color: red;
+        }
+        .div3{
+            background-color: brown;
+        }
+        .div4{
+            background-color: blueviolet;
+        }
+        .div5{
+            background-color: chartreuse;
+            grid-row: 2/ 4;
+            grid-column: 4/ 5;
+        }
+        .div6{
+            background-color: cadetblue;
+            grid-column: 1/ 4;
+        }
+        .div7{
+            background-color: coral;
+            grid-column: 1/ -1;
+        }
+        main{
+            width: 100%;
+            display: grid;
+            margin: auto;
+            grid-template-columns: 100px 100px;
+            grid-template-rows: 100px 50px 100px;
+            border: 2px solid red;
+        }
+        .divs1{
+            background-color: darkgrey;
+            grid-row: 1/ 4;
+            grid-column: 0/ -1;
+        }
+        
+        .divs2{
+            background-color: darkmagenta;
+        }
+        .divs3{
+            background-color: darkorange;
+        }
+    </style>
+</head>
+<body>
+    <div class="divs">
+        <div class="div1">header</div>
+        <div class="div2">box2</div>
+        <div class="div3">box3</div>
+        <div class="div4">box4</div>
+        <div class="div5">box5</div>
+        <div class="div6">box6</div>
+        <div class="div7">footer</div>
+    </div>
+    <main>
+        <div class="divs1">1 raju</div>
+        <div class="divs2">2 santosh</div>
+        <div class="divs3">3 prince</div>
+    </main>
+</body>
+</html>

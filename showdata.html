@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-aewsome.min.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+            list-style: none;
+            user-select: none;
+        }
+        body:before{
+            content: " ";
+            position: absolute;
+            left: 8%;
+            bottom: 2%;
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,.5);
+            animation: zigzag1 3s linear infinite;
+        }
+        body:after{
+            content: " ";
+            position: absolute;
+            right: 2%;
+            top: 12%;
+            z-index: -1;
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,.5);
+            animation: zigzag2 3s linear infinite;
+        }
+        @keyframes zigzag1 {
+            0%,100%{
+                transform: translatex(60px);
+            }
+            50%{
+                transform: translatex(120px);
+            }
+        }
+        @keyframes zigzag2 {
+            0%,100%{
+                transform: translatey(60px);
+            }
+            50%{
+                transform: translatey(120px);
+            }
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(-30deg,#33ccff,#81d5ff,#ffccff,#81d5ff);
+        }
+        .container{
+            width: 90%;
+            height: 85vh;
+            background: rgba(255,255,255,.4);
+            backdrop-filter: blur(5px);
+        }
+        .container .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding:8px 25px;
+            margin-top: 1em;
+        }
+        .container .navbar .logo{
+            display: flex;
+            align-items: center;
+        }
+        .container .navbar .logo .logoname{
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-left: .5em;
+        }
+        .container .navbar .logo img{
+            animation: rotate 8s linear infinite;
+        }
+        @keyframes rotate {
+            fromm{
+                transform: rotate(-360deg);
+            }
+        }
+        .container .navbar .searchbox{
+            position: relative;
+        }
+        .container .navbar .searchbox input{
+            padding: 8px 120px 8px 20px;
+            border: none;
+            outline: none;
+            border-radius: 30px;
+            transition: .3s;
+        }
+        .container .navbar .searchbox input:focus{
+            padding: 8px 250px 8px 20px;
+        }
+        .container .navbar .searchbox .fa{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .container .navbar .navitem{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container .navbar .navitem .lang select{
+            padding: 6px 30px;
+            border: none;
+            outline: none;
+            border-radius: 6px;
+            position: relative;
+            right: 4em;
+        }
+        .container .navbar .navitem .icon{
+            position: relative;
+            right: 1em;
+        }
+        .container .navbar .navitem .icon ul li{
+            position: relative;
+            display: inline-block;
+            font-size: 16px;
+            margin: 0 12px;
+            color: #33cc33;
+        }
+        .container .navbar .navitem .icon ul li .fa{
+            padding: 5px;
+            color: #fff;
+            background: #000;
+            border-radius: 50%;
+            transition: .3s;
+        }
+        .container .navbar .navitem .icon ul li .fa:hover{
+            transform: scale(1.2) rotate(360deg);
+            color: #33cc33;
+            background: transparent;
+        }
+        .container .navbar .navitem .account{
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .container .navbar .navitem .account img{
+            border-radius: 50%;
+        }
+        .container .navbar .navitem .account .name{
+            text-transform: capitalize;
+            margin: 0 8px;
+            font-weight: 700;
+        }
+        .container .navbar .navitem .account .username{
+            position: absolute;
+            top: 18px;
+            left: 32px;
+            font-size: 12px;
+        }
+        .container-body {
+            display: grid;
+            grid-template-columns: 18% auto;
+        }
+        .container-body .sidebar{
+            margin: 20px 0 20px 20px;
+            background: rgba(255,255,255,.6);
+            padding: 10px ;
+            border-radius: 14px;
+        }
+        .container-body .sidebar ul li{
+            padding: 10px 10px;
+            margin: 10px 0;
+        }
+        .container-body .sidebar ul li:hover{
+            background: #33ccff;
+            color: #fff;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .container-body .sidebar ul li a{
+            color: black;
+            text-transform: capitalize;
+            font-weight: 700;
+        }
+        .container-body .sidebar ul li a:hover{
+            color: #fff;
+        }
+        .container-body .sidebar ul .dashboard{
+            background: #33ccff;
+            color: #fff;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .container-body .sidebar ul .dashboard a{
+            color: #fff;
+        }
+        .container-body .sidebar ul li .fa{
+            font-size: 18px;
+            padding: 0 5px;
+        }
+        .container-body .main-body .tittle{
+            padding: 15px;
+            margin: 20px;
+            margin-bottom: 0px;
+        }
+        .container-body .main-body .tittle .greating{
+            text-transform: capitalize;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        .container-body .main-body .tittle h2{
+            font-size: 25px;
+            font-weight: normal;
+        }
+        .container-body .main-body .cards{
+            display: grid;
+            grid-template-rows: 180px 140px;
+            grid-gap: 20px;
+            padding: 20px;
+        }
+        .container-body .main-body .cards .row-1{
+            display: grid;
+            grid-template-columns: 30% 40% auto;
+            grid-gap: 20px;
+        }
+        .container-body .main-body .cards .row-2{
+            display: grid;
+            grid-template-columns: repeat(4,auto);
+            grid-gap: 20px;
+        }
+        .container-body .main-body .cards .row .col{
+            background: rgba(255,255,255,.5);
+            border-radius: 15px;
+        }
+        .container-body .main-body .cards .row .col .cardtittle{
+            font-size: 16px;
+            padding: 20px;
+            text-transform: capitalize;
+        }
+        .balance-card{
+            position: relative;
+        }
+        .balance-card h2{
+            font-size: 28px;
+            padding: 10px 20px;
+        }
+        .balance-card span{
+            font-size: 16px;
+            font-weight: bold;
+            padding: 20px;
+            color: #33cc33;
+        }
+        .balance-card img{
+            position: absolute;
+            top: 5em;
+            left: 14em;
+        }
+        .debit-card{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 18px;
+            background: #33ccff;
+            color: #fff;
+        }
+        .debit-card .cardnumber{
+            font-size: 18px;
+            padding: 10px 20px;
+            padding-right: 0;
+            background: rgba(255,255,255,.6);
+            color: #000;
+            font-weight: normal;
+        }
+        .debit-card .cardholder{
+            font-size: 18px;
+            padding: 20px;
+            font-weight: normal;
+        }
+        .col .t-i, .p-i, .u-i, .i-s{
+            font-size: 25px;
+            font-weight: 700;
+            padding: 20px 5px 20px 20px;
+        }
+        .col .status{
+            font-size: 18px;
+            padding: 6px 20px;
+            border-radius: 6px;
+            color: #fff;
+            position: relative;
+            bottom: 3px;
+        }
+        .total-invoice .status{
+            font-size: 16px;
+            font-weight: 700;
+            color: #33cc33;
+            padding: 5px;
+        }
+        .paid-invoice .status{
+            background: #0066cc;
+        }
+        .unpaid-invoice .status{
+            background: #ff0066;
+        }
+        .invoice-sent .status{
+            background: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="HealthCare/image/logo.jpg" width="40px" alt="">
+                <span class="logoname">Logo Name</span>
+            </div>
+            <div class="searchbox">
+                <form action="" method="get">
+                    <input type="text" name="" id="" placeholder="Search">
+                    <i class="fa fa-search"></i>
+                </form>
+            </div>
+            <div class="navitem">
+                <div class="lang">
+                    <select name="" id="">
+                        <option value="">English</option>
+                        <option value="">Hindi</option>
+                    </select>
+                </div>
+                <div class="icon">
+                    <ul>
+                        <li><i class="fa fa-envelope"></i></li>
+                        <li><i class="fa fa-bell"></i></li>
+                    </ul>
+                </div>
+                <div class="account">
+                    <img src="HealthCare/image/karimroad.jpg" width="40px" alt="">
+                    <span class="name">Raju Kumar</span>
+                    <span class="username">@raju kumar</span>
+                </div>
+            </div>
+        </div>
+        <div class="container-body">
+            <div class="sidebar">
+                <ul>
+                    <li class="dashboard">
+                        <i class="fa fa-dahscube"></i>
+                        <a href="#">Dashboard</a>
+                    </li>
+                    <li class="">
+                        <i class="fa fa-money"></i>
+                        <a href="#">Balance</a>
+                    </li>
+                    <li class="">
+                        <i class="fa fa-envelope-o"></i>
+                        <a href="#">Invoice</a>
+                    </li>
+                    <li class="">
+                        <i class="fa fa-credit-card-alt"></i>
+                        <a href="#">Card</a>
+                    </li>
+                    <li class="">
+                        <i class="fa fa-history"></i>
+                        <a href="#">history</a>
+                    </li>
+                    <li class="">
+                        <i class="fa fa-info-circle"></i>
+                        <a href="#">Details</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-body">
+                <div class="tittle">
+                    <span class="greating">Hii Raju</span>
+                    <h2>Owerview</h2>
+                </div>
+                <div class="cards">
+                    <div class="row row-1">
+                        <div class="col">
+                            <div class="balance-card">
+                                <h3 class="cardtittle">Balance</h3>
+                                <h2 class="balance">$ 567</h2>
+                                <span class="balacestatus">+17%</span>
+                                <img src="HealthCare/image/bar1.jpg" width="80px" alt="">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="latest-activity">
+                                <h3 class="cardtittle">Latest activity</h3>
+                                <img src="" alt="">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="debit-card">
+                                <h3 class="cardtittle">My card</h3>
+                                <h3 class="cardnumber">1234  6765  4567</h3>
+                                <h3 class="cardholder">Raju Kumar</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-2">
+                        <div class="col">
+                            <div class="total-invoice">
+                                <h3 class="cardtittle">Total invoice</h3>
+                                <span class="t-i">530</span>
+                                <span class="status">+25%</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="paid-invoice">
+                                <h3 class="cardtittle">Total invoice</h3>
+                                <span class="t-i">530</span>
+                                <span class="status">+85%
+                                    <i class="fa fa-line-chart"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="unpaid-invoice">
+                                <h3 class="cardtittle">Total invoice</h3>
+                                <span class="t-i">530</span>
+                                <span class="status">+65%
+                                    <i class="fa fa-line-chart"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="invoice-sent">
+                                <h3 class="cardtittle">Total invoice</h3>
+                                <span class="t-i">530</span>
+                                <span class="status">
+                                    <i class="fa fa-check"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
